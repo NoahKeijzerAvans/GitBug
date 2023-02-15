@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "DomainServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DomainServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DomainServices.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "DomainServices/1.0.0": {
+      "type": "project",
+      "path": "../DomainServices/DomainServices.csproj",
+      "msbuildProject": "../DomainServices/DomainServices.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Domain >= 1.0.0",
+      "DomainServices >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\noahd\\.nuget\\packages\\": {}
@@ -33,7 +71,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\noahd\\source\\repos\\SOFA3\\DomainServices\\DomainServices.csproj": {
+              "projectPath": "C:\\Users\\noahd\\source\\repos\\SOFA3\\DomainServices\\DomainServices.csproj"
+            },
+            "C:\\Users\\noahd\\source\\repos\\SOFA3\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\noahd\\source\\repos\\SOFA3\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
