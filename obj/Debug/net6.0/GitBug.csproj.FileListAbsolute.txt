@@ -24,3 +24,4 @@ C:\Users\noahd\source\repos\SOFA3\GitBug\obj\Debug\net6.0\refint\GitBug.dll
 C:\Users\noahd\source\repos\SOFA3\GitBug\obj\Debug\net6.0\GitBug.pdb
 C:\Users\noahd\source\repos\SOFA3\GitBug\obj\Debug\net6.0\GitBug.genruntimeconfig.cache
 C:\Users\noahd\source\repos\SOFA3\GitBug\obj\Debug\net6.0\ref\GitBug.dll
+C:\Users\noahd\source\repos\SOFA3\GitBug\bin\Debug\net6.0\ConsoleTables.dll
