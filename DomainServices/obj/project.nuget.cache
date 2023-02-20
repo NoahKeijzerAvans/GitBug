@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SYZD81Nvp5GLVlwss/yLIzVB917bOEszApAYk043HAtWRLdfDf+Q8zuPxIuN2akB4cIrCCBTFw9aZ+f8LFmdqw==",
+  "dgSpecHash": "70irvBSLuDSKmg8N376Aw+K672mZ9gGExzfp+UO8lnTvf3uU1vzBCittd7fC8PZXYpYOPTQeg3Q2yy5uynSxtg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\noahd\\source\\repos\\SOFA3\\DomainServices\\DomainServices.csproj",
+  "projectFilePath": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

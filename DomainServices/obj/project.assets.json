@@ -711,11 +711,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\noahd\\source\\repos\\SOFA3\\DomainServices\\DomainServices.csproj",
+      "projectUniqueName": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj",
       "projectName": "DomainServices",
-      "projectPath": "C:\\Users\\noahd\\source\\repos\\SOFA3\\DomainServices\\DomainServices.csproj",
+      "projectPath": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj",
       "packagesPath": "C:\\Users\\noahd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\noahd\\source\\repos\\SOFA3\\DomainServices\\obj\\",
+      "outputPath": "C:\\source\\SOFA3\\DomainServices\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\noahd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -732,8 +732,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\noahd\\source\\repos\\SOFA3\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\noahd\\source\\repos\\SOFA3\\Domain\\Domain.csproj"
+            "C:\\source\\SOFA3\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\source\\SOFA3\\Domain\\Domain.csproj"
             }
           }
         }

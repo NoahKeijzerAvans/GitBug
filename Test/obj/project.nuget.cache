@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PKwqgJx5SLLNcm+cyHyT0ILQcAkOHdn6PwsFv4ShHJl059q9/jjC2rDtbJbrgh+CYTpcLZZ5ycVMa7+NJE2STQ==",
+  "dgSpecHash": "PG26Zu++EjpOOLdmTZdMHid0/w1T25uHRbhhDlw1RYzxwaOKyYZTIhtNeJKfstAViWsjSLuVeL1hbdhdQwTFNQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\noahd\\source\\repos\\SOFA3\\Test\\Test.csproj",
+  "projectFilePath": "C:\\source\\SOFA3\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
