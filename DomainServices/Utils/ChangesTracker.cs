@@ -1,12 +1,10 @@
-﻿using DomainServices.Context;
-using DomainServices.Context.Commands;
-using DomainServices.Interfaces;
+﻿using DomainServices.Context.Commands;
 using DomainServices.Interfaces.Change;
 using DomainServices.States.ChangesState;
 
 namespace DomainServices.Utils;
 
-public class ChangesTracker: IChangeStateable
+public class ChangesTracker : IChangeStateable
 {
     public Branch CurrentBranch { get; set; }
     public List<Branch> Branches { get; set; }

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainServices.Context;
-using DomainServices.Context.Commands;
-using DomainServices.Interfaces;
+﻿using DomainServices.Context.Commands;
 using DomainServices.Interfaces.Change;
 using DomainServices.Utils;
 
@@ -46,7 +39,7 @@ namespace DomainServices.States.ChangesState
 
             }
             else
-               Console.WriteLine("No changes to be committed");
+                Console.WriteLine("No changes to be committed");
         }
 
         public void PullToWorkingDirectory()
@@ -108,8 +101,10 @@ namespace DomainServices.States.ChangesState
             if (!Tracker.Changes.Any())
             {
                 Tracker.CurrentBranch = Tracker.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
-                Console.WriteLine($"Current branch is {Tracker.CurrentBranch.Name}");;
-            }else{
+                Console.WriteLine($"Current branch is {Tracker.CurrentBranch.Name}"); ;
+            }
+            else
+            {
                 Console.WriteLine("There are still uncommitted changes, would you like to bring the changes to the new branch? y/n");
                 var answer = Console.ReadLine();
                 if (!answer!.Equals("y")) return;

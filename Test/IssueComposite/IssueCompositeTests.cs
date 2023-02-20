@@ -1,11 +1,6 @@
 ﻿using Domain.Enums;
 using Domain.Models;
 using DomainServices.Context.Task;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DomainServices.States.IssuesState;
 
 namespace Test.IssueComposite
@@ -105,7 +100,7 @@ namespace Test.IssueComposite
         {
             // Arrange
             _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
-            var epic = new Epic("New Epic", "Example",new Project(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            var epic = new Epic("New Epic", "Example", new Project(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
 
             // Act
             _compositeIssue.Add(epic);

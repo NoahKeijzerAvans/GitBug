@@ -1,8 +1,6 @@
-﻿using DomainServices.Context;
-using DomainServices.Context.Commands;
+﻿using DomainServices.Context.Commands;
 using DomainServices.GitCommands;
 using DomainServices.GitCommands.Commands;
-using DomainServices.Interfaces;
 
 namespace DomainServices.Utils;
 
@@ -10,7 +8,7 @@ public class CommandControl
 {
     public GitCommand Command { get; set; }
     private ChangesTracker Tracker { get; }
-    public CommandControl(ChangesTracker tracker )
+    public CommandControl(ChangesTracker tracker)
     {
         Tracker = tracker;
         Command = new NoCommand(Tracker);
@@ -78,6 +76,6 @@ public class CommandControl
                 Console.WriteLine("git pull origin");
                 Console.WriteLine("git checkout -b");
                 break;
-        } 
+        }
     }
 }

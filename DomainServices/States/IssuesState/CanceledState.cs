@@ -1,18 +1,17 @@
 ﻿using DomainServices.Context.Task;
-using DomainServices.Interfaces;
 using DomainServices.Interfaces.Issue;
 
 namespace DomainServices.States.IssuesState;
 
-public class CanceledState: IIssueState
+public class CanceledState : IIssueState
 {
     private Issue Context { get; }
-    
+
     public CanceledState(Issue context)
     {
         Context = context;
     }
-    
+
     public void SetIssueToDo()
     {
         throw new InvalidOperationException();

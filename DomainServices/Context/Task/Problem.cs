@@ -1,11 +1,9 @@
-﻿using Domain;
-using Domain.Enums;
+﻿using Domain.Enums;
 using Domain.Models;
-using DomainServices.Interfaces;
 
 namespace DomainServices.Context.Task;
 
-public class Problem: Issue
+public class Problem : Issue
 {
     private string Summary { get; set; }
     private string RequestType { get; set; }
@@ -14,5 +12,5 @@ public class Problem: Issue
         RequestType = requestType;
         Summary = summary;
     }
-    
+
 }

@@ -1,13 +1,12 @@
 ﻿using DomainServices.Context.Task;
-using DomainServices.Interfaces;
 using DomainServices.Interfaces.Issue;
 
 namespace DomainServices.States.IssuesState;
 
-public class ReviewState: IIssueState
+public class ReviewState : IIssueState
 {
     private Issue Context { get; }
-    
+
     public ReviewState(Issue context)
     {
         Context = context;

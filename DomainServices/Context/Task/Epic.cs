@@ -1,11 +1,9 @@
-﻿using Domain;
-using Domain.Enums;
+﻿using Domain.Enums;
 using Domain.Models;
-using DomainServices.Interfaces;
 
 namespace DomainServices.Context.Task;
 
-public class Epic: Issue
+public class Epic : Issue
 {
     private string Summary { get; set; }
 

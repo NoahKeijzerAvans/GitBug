@@ -1,10 +1,9 @@
 ﻿using DomainServices.Context.Task;
-using DomainServices.Interfaces;
 using DomainServices.Interfaces.Issue;
 
 namespace DomainServices.States.IssuesState;
 
-public class ToDoState: IIssueState
+public class ToDoState : IIssueState
 {
     private Issue Context { get; }
     public ToDoState(Issue context)

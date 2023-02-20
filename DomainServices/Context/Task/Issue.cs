@@ -1,13 +1,11 @@
-﻿using Domain;
-using Domain.Enums;
+﻿using Domain.Enums;
 using Domain.Models;
-using DomainServices.Interfaces;
 using DomainServices.Interfaces.Issue;
 using DomainServices.States.IssuesState;
 
 namespace DomainServices.Context.Task;
 
-public abstract class Issue: IIssueStateable
+public abstract class Issue : IIssueStateable
 {
     public string Name { get; set; }
     public string Description { get; set; }

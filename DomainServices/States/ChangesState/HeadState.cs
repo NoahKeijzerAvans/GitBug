@@ -1,6 +1,4 @@
-﻿using DomainServices.Context;
-using DomainServices.Context.Commands;
-using DomainServices.Interfaces;
+﻿using DomainServices.Context.Commands;
 using DomainServices.Interfaces.Change;
 using DomainServices.Utils;
 

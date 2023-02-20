@@ -1,11 +1,9 @@
-﻿using Domain;
-using Domain.Enums;
+﻿using Domain.Enums;
 using Domain.Models;
-using DomainServices.Interfaces;
 
 namespace DomainServices.Context.Task;
 
-public class Story: Issue
+public class Story : Issue
 {
     private string Narrative { get; set; }
     private string AcceptanceCriteria { get; set; }

@@ -2,10 +2,10 @@
 
 namespace DomainServices.GitCommands.Commands;
 
-public class GitAddChangesCommand: GitCommand
+public class GitAddChangesCommand : GitCommand
 {
     private ChangesTracker Tracker { get; }
-    
+
     public override void Excecute(dynamic? change)
     {
         Tracker.AddChange(change!);

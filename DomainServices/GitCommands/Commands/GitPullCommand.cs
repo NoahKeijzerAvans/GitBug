@@ -2,10 +2,10 @@
 
 namespace DomainServices.GitCommands.Commands;
 
-public class GitPullCommand: GitCommand
+public class GitPullCommand : GitCommand
 {
     private ChangesTracker Tracker { get; }
-    
+
     public GitPullCommand(ChangesTracker tracker) : base(tracker)
     {
         Tracker = tracker;

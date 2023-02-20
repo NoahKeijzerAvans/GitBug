@@ -4,8 +4,8 @@ namespace DomainServices.Context.Commands
 {
     public class Branch
     {
-        public string Name { get;  }
-        public Dictionary<Commit, IChangesState> Commits { get;}
+        public string Name { get; }
+        public Dictionary<Commit, IChangesState> Commits { get; }
 
         public Branch(string name, Dictionary<Commit, IChangesState> commits)
         {

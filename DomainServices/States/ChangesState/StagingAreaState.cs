@@ -1,14 +1,6 @@
-﻿using DomainServices.Utils;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainServices.Interfaces;
-using DomainServices.Context;
-using DomainServices.Context.Commands;
+﻿using DomainServices.Context.Commands;
 using DomainServices.Interfaces.Change;
+using DomainServices.Utils;
 
 namespace DomainServices.States.ChangesState
 {

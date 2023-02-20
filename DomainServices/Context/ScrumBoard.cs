@@ -15,8 +15,8 @@ public class ScrumBoard
 
     public void Draw()
     {
-        Console.WriteLine($"Total Story Points: { Issues.TotalStoryPoints }");
-        Console.WriteLine($"Total Completed Story Points: { Issues.TotalCompletedStoryPoints }");
+        Console.WriteLine($"Total Story Points: {Issues.TotalStoryPoints}");
+        Console.WriteLine($"Total Completed Story Points: {Issues.TotalCompletedStoryPoints}");
         Console.WriteLine();
         var table = new ConsoleTable("To Do", "In Progress", "To Review", "Done", "Canceled");
         foreach (var issue in Issues._issues)
@@ -65,6 +65,6 @@ public class ScrumBoard
 
     private static void AddRowInProgress(ConsoleTable table, Issue issue)
     {
-        table.AddRow("", issue.Name, "", "",  "");
+        table.AddRow("", issue.Name, "", "", "");
     }
 }
