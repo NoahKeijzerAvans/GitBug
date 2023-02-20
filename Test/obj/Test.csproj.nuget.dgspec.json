@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD:obj/GitBug.csproj.nuget.dgspec.json
     "C:\\source\\SOFA3\\GitBug.csproj": {}
   },
@@ -24,6 +25,18 @@
         "projectName": "DomainServices",
         "projectPath": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj",
         "packagesPath": "C:\\Users\\noahd\\.nuget\\packages\\",
+=======
+    "C:\\source\\SOFA3\\Test\\Test.csproj": {}
+  },
+  "projects": {
+    "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj",
+        "projectName": "DomainServices",
+        "projectPath": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj",
+        "packagesPath": "C:\\Users\\noahd\\.nuget\\packages\\",
+>>>>>>> b5d6ec3f582623a3ddb018959707fd96e9906c34
         "outputPath": "C:\\source\\SOFA3\\DomainServices\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
@@ -145,7 +158,10 @@
         "projectPath": "C:\\source\\SOFA3\\Test\\Test.csproj",
         "packagesPath": "C:\\Users\\noahd\\.nuget\\packages\\",
         "outputPath": "C:\\source\\SOFA3\\Test\\obj\\",
+<<<<<<< HEAD
 >>>>>>> b5d6ec3f582623a3ddb018959707fd96e9906c34:Test/obj/Test.csproj.nuget.dgspec.json
+=======
+>>>>>>> b5d6ec3f582623a3ddb018959707fd96e9906c34
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\noahd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -162,6 +178,7 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
 <<<<<<< HEAD:obj/GitBug.csproj.nuget.dgspec.json
               "C:\\source\\DomainServices\\DomainServices.csproj": {
                 "projectPath": "C:\\source\\DomainServices\\DomainServices.csproj"
@@ -172,6 +189,10 @@
               "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj": {
                 "projectPath": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj"
 >>>>>>> b5d6ec3f582623a3ddb018959707fd96e9906c34:Test/obj/Test.csproj.nuget.dgspec.json
+=======
+              "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj": {
+                "projectPath": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj"
+>>>>>>> b5d6ec3f582623a3ddb018959707fd96e9906c34
               }
             }
           }

@@ -20,6 +20,7 @@ C:\Users\noahd\source\repos\SOFA3\DomainServices\obj\Debug\net6.0\refint\DomainS
 C:\Users\noahd\source\repos\SOFA3\DomainServices\obj\Debug\net6.0\DomainServices.pdb
 C:\Users\noahd\source\repos\SOFA3\DomainServices\obj\Debug\net6.0\DomainServices.genruntimeconfig.cache
 C:\Users\noahd\source\repos\SOFA3\DomainServices\obj\Debug\net6.0\ref\DomainServices.dll
+<<<<<<< HEAD
 C:\source\SOFA3\DomainServices\bin\Debug\net6.0\Domain.deps.json
 C:\source\SOFA3\DomainServices\bin\Debug\net6.0\Domain.runtimeconfig.json
 C:\source\SOFA3\DomainServices\bin\Debug\net6.0\Domain.exe
@@ -42,3 +43,5 @@ C:\source\SOFA3\DomainServices\obj\Debug\net6.0\refint\DomainServices.dll
 C:\source\SOFA3\DomainServices\obj\Debug\net6.0\DomainServices.pdb
 C:\source\SOFA3\DomainServices\obj\Debug\net6.0\DomainServices.genruntimeconfig.cache
 C:\source\SOFA3\DomainServices\obj\Debug\net6.0\ref\DomainServices.dll
+=======
+>>>>>>> b5d6ec3f582623a3ddb018959707fd96e9906c34
