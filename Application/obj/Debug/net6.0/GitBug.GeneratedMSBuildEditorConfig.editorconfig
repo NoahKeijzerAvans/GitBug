@@ -1,0 +1,14 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GitBug
+<<<<<<< HEAD:obj/Debug/net6.0/GitBug.GeneratedMSBuildEditorConfig.editorconfig
+build_property.ProjectDir = C:\source\SOFA3\
+=======
+build_property.ProjectDir = C:\source\SOFA3\Application\
+>>>>>>> b5d6ec3f582623a3ddb018959707fd96e9906c34:Application/obj/Debug/net6.0/GitBug.GeneratedMSBuildEditorConfig.editorconfig
