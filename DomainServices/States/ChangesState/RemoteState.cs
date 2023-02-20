@@ -44,7 +44,7 @@ namespace DomainServices.States.ChangesState
                 var name = Console.ReadLine();
                 if (name!.Any())
                 {
-                    Tracker.Branches.Add(new Branch(name!));
+                    Tracker.Branches.Add(new Branch(name!, Tracker));
                     CheckoutBranch(name!);
                 }
                 else
@@ -75,7 +75,7 @@ namespace DomainServices.States.ChangesState
         {
             var branchExists = Tracker.Branches.Any(b => b.Name.Equals(name));
             if (!branchExists)
-                Tracker.Branches.Add(new Branch(name));
+                Tracker.Branches.Add(new Branch(name, Tracker));
 
             if (!Tracker.Changes.Any()) return;
             {

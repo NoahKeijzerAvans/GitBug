@@ -1,5 +1,4 @@
-﻿using Domain.Models;
-using DomainServices.States.IssuesState;
+﻿using DomainServices.States.IssuesState;
 
 namespace DomainServices.Context.Task;
 

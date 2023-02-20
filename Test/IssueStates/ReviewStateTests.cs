@@ -1,5 +1,6 @@
 ﻿using Domain.Enums;
 using Domain.Models;
+using DomainServices.Context;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 
@@ -9,14 +10,14 @@ public class ReviewStateTests
     private Issue _issue;
     public ReviewStateTests()
     {
-        _issue = new Story("New Story", "Example", new Project(), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
+        _issue = new Story("New Story", "Example", new Project("Test", true, "Test"), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
             "when the task is finished the task is finished", new List<Issue>());
         _issue.State = new ReviewState(_issue);
 
     }
     internal virtual void Setup()
     {
-        _issue = new Story("New Story", "Example", new Project(), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
+        _issue = new Story("New Story", "Example", new Project("Test", true, "Test"), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
             "when the task is finished the task is finished", new List<Issue>());
         _issue.State = new ReviewState(_issue);
     }

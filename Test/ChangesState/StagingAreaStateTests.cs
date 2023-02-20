@@ -9,7 +9,7 @@ public class StagingAreaStateTests
     public StagingAreaStateTests()
     {
         _changeTracker = new ChangesTracker();
-        _change = new Change(new object());
+        _change = new Change(new object(), _changeTracker);
     }
 
     protected virtual void Setup()
@@ -17,7 +17,7 @@ public class StagingAreaStateTests
         // Arrange
         _changeTracker = new ChangesTracker();
         _changeTracker.State = new DomainServices.States.ChangesState.StagingAreaState(_changeTracker);
-        _change = new Change(new object());
+        _change = new Change(new object(), _changeTracker);
     }
 
     // Happy flow :)
@@ -29,7 +29,7 @@ public class StagingAreaStateTests
         Setup();
         // Act
         _changeTracker.AddChange(_change);
-        var sut = _changeTracker.Changes.First().Values.FirstOrDefault();
+        var sut = _changeTracker.Changes.First().State;
 
         // Assert
         Assert.IsType<DomainServices.States.ChangesState.StagingAreaState>(sut);
@@ -43,7 +43,7 @@ public class StagingAreaStateTests
         // Act
         _changeTracker.AddChange(_change);
         _changeTracker.CommitChanges("Test");
-        var sut = _changeTracker.CurrentBranch.Commits.First().Value;
+        var sut = _changeTracker.CurrentBranch.Commits.First().State;
 
         // Assert
         Assert.IsType<DomainServices.States.ChangesState.HeadState>(sut);

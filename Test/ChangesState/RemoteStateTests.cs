@@ -9,7 +9,7 @@ public class RemoteStateTests
     public RemoteStateTests()
     {
         _changeTracker = new ChangesTracker();
-        _change = new Change(new object());
+        _change = new Change(new object(), _changeTracker);
     }
 
     protected virtual void Setup()
@@ -17,7 +17,7 @@ public class RemoteStateTests
         // Arrange
         _changeTracker = new ChangesTracker();
         _changeTracker.State = new DomainServices.States.ChangesState.RemoteState(_changeTracker);
-        _change = new Change(new object());
+        _change = new Change(new object(), _changeTracker);
     }
 
     // Unhappy flow :(

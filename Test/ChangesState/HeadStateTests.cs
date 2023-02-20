@@ -10,7 +10,7 @@ public class HeadStateTests
     public HeadStateTests()
     {
         _changeTracker = new ChangesTracker();
-        _change = new Change(new object());
+        _change = new Change(new object(), _changeTracker);
     }
 
     protected virtual void Setup()
@@ -18,7 +18,7 @@ public class HeadStateTests
         // Arrange
         _changeTracker = new ChangesTracker();
         _changeTracker.State = new DomainServices.States.ChangesState.HeadState(_changeTracker);
-        _change = new Change(new object());
+        _change = new Change(new object(),_changeTracker);
     }
 
     // Unhappy flow :(

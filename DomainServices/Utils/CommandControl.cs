@@ -48,7 +48,7 @@ public class CommandControl
         {
             case { } when command.Contains("git add"):
                 SetCommand(new GitAddChangesCommand(Tracker));
-                CommandWasCalled(new Change());
+                CommandWasCalled(new Change(Tracker));
                 break;
             case { } when command.Contains("git commit -m"):
                 var description = span[13..];

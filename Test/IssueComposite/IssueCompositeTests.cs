@@ -1,5 +1,6 @@
 ﻿using Domain.Enums;
 using Domain.Models;
+using DomainServices.Context;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 
@@ -10,11 +11,11 @@ namespace Test.IssueComposite
         private CompositeIssue _compositeIssue;
         public IssueCompositeTests()
         {
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
 
-            var problem = new Problem("New problem", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
-            var bug = new Bug("New Bug", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
-            var story = new Story("New Story", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty,
+            var problem = new Problem("New problem", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            var bug = new Bug("New Bug", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
+            var story = new Story("New Story", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
 
             _compositeIssue.Add(story);
@@ -23,11 +24,11 @@ namespace Test.IssueComposite
         }
         internal virtual void Setup()
         {
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
 
-            var problem = new Problem("New problem", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
-            var bug = new Bug("New Bug", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
-            var story = new Story("New Story", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty,
+            var problem = new Problem("New problem", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            var bug = new Bug("New Bug", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
+            var story = new Story("New Story", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
 
             _compositeIssue.Add(story);
@@ -50,11 +51,11 @@ namespace Test.IssueComposite
         public void Should_Return_2_Completed_Story_Points()
         {
             // Arrange
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
 
-            var problem = new Problem("New problem", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
-            var bug = new Bug("New Bug", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
-            var story = new Story("New Story", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty,
+            var problem = new Problem("New problem", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            var bug = new Bug("New Bug", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
+            var story = new Story("New Story", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
             story.State = new DoneState(story);
             bug.State = new DoneState(story);
@@ -73,8 +74,8 @@ namespace Test.IssueComposite
         public void Should_Add_Sucessfully_If_Bug()
         {
             // Arrange
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
-            var bug = new Bug("New Bug", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
+            var bug = new Bug("New Bug", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
 
             // Act
             _compositeIssue.Add(bug);
@@ -86,8 +87,8 @@ namespace Test.IssueComposite
         public void Should_Add_Sucessfully_If_Change()
         {
             // Arrange
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
-            var change = new Change("New Change", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
+            var change = new Change("New Change", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
 
             // Act
             _compositeIssue.Add(change);
@@ -99,8 +100,8 @@ namespace Test.IssueComposite
         public void Should_Add_Sucessfully_If_Epic()
         {
             // Arrange
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
-            var epic = new Epic("New Epic", "Example", new Project(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
+            var epic = new Epic("New Epic", "Example", new Project("Test", true, "Test"), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
 
             // Act
             _compositeIssue.Add(epic);
@@ -113,8 +114,8 @@ namespace Test.IssueComposite
         public void Should_Add_Sucessfully_If_Incident()
         {
             // Arrange
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
-            var incident = new Incident("New Incident", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, String.Empty, new Person(), new List<Issue>());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
+            var incident = new Incident("New Incident", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, String.Empty, new Person(), new List<Issue>());
 
             // Act
             _compositeIssue.Add(incident);
@@ -126,8 +127,8 @@ namespace Test.IssueComposite
         public void Should_Add_Sucessfully_If_Problem()
         {
             // Arrange
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
-            var problem = new Problem("New Problem", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
+            var problem = new Problem("New Problem", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
 
             // Act
             _compositeIssue.Add(problem);
@@ -139,8 +140,8 @@ namespace Test.IssueComposite
         public void Should_Add_Sucessfully_If_Story()
         {
             // Arrange
-            _compositeIssue = new CompositeIssue("Project example", "Example", new Project());
-            var story = new Story("New Problem", "Example", new Project(), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            _compositeIssue = new CompositeIssue("Project example", "Example", new Project("Test", true, "Test"));
+            var story = new Story("New Problem", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, String.Empty, new List<Issue>());
 
             // Act
             _compositeIssue.Add(story);

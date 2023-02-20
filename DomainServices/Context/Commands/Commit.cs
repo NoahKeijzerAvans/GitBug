@@ -1,20 +1,30 @@
 ﻿using DomainServices.Interfaces.Change;
 using DomainServices.States.ChangesState;
+using DomainServices.Utils;
+using System.Diagnostics;
 
 namespace DomainServices.Context.Commands;
 public class Commit
 {
-    private List<Dictionary<Change, IChangesState>> Changes { get; }
+    private List<Change> Changes { get; }
+    public IChangesState State { get; set; }
     private string Description { get; }
+    private ChangesTracker Tracker { get; }
 
-    public Commit(string description, List<Dictionary<Change, IChangesState>> changes)
+    public Commit(string description, List<Change> changes, ChangesTracker tracker)
     {
+        Changes = changes;
+        Tracker = tracker;
+        State = new HeadState(Tracker);
         Description = description;
-        Changes = PushChangesToHead(changes);
+        PushChangesToHead(changes);
     }
 
-    private static List<Dictionary<Change, IChangesState>> PushChangesToHead(IEnumerable<Dictionary<Change, IChangesState>> changes)
+    private void PushChangesToHead(List<Change> changes)
     {
-        return (from changesToHead in changes from change in changesToHead.Keys select new Dictionary<Change, IChangesState> { { change, new HeadState() } }).ToList();
+        changes.ForEach(c =>
+        {
+            c.State = new HeadState(Tracker);
+        });
     }
 }

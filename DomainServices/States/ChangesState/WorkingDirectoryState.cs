@@ -18,10 +18,7 @@ namespace DomainServices.States.ChangesState
         }
         public void AddChange(Change change)
         {
-            var changeAdd = new Dictionary<Change, IChangesState>()
-            {
-                { change, new StagingAreaState(Tracker) }
-            };
+            var changeAdd = new Change(Tracker);
             Tracker.Changes.Add(changeAdd);
             Tracker.State = new StagingAreaState(Tracker);
             Console.WriteLine("Changes added successfully");
@@ -31,9 +28,9 @@ namespace DomainServices.States.ChangesState
         {
             if (Tracker.Changes.Any())
             {
-                var commit = new Commit(description, Tracker.Changes);
-                Tracker.CurrentBranch.Commits.Add(commit, new HeadState(Tracker));
-                Tracker.Changes = new List<Dictionary<Change, IChangesState>>();
+                var commit = new Commit(description, Tracker.Changes, Tracker);
+                Tracker.CurrentBranch.Commits.Add(commit);
+                Tracker.Changes = new List<Change>();
                 Tracker.State = new WorkingDirectoryState(Tracker);
                 Console.WriteLine("Changes committed successfully");
 
@@ -65,7 +62,7 @@ namespace DomainServices.States.ChangesState
                 var name = Console.ReadLine();
                 if (name!.Any())
                 {
-                    Tracker.Branches.Add(new Branch(name!));
+                    Tracker.Branches.Add(new Branch(name!, Tracker));
                     CheckoutBranch(name!);
                 }
                 else
@@ -96,7 +93,7 @@ namespace DomainServices.States.ChangesState
         {
             var branchExists = Tracker.Branches.Any(b => b.Name.Equals(name));
             if (!branchExists)
-                Tracker.Branches.Add(new Branch(name));
+                Tracker.Branches.Add(new Branch(name, Tracker));
 
             if (!Tracker.Changes.Any())
             {

@@ -8,22 +8,22 @@ public class ChangesTracker : IChangeStateable
 {
     public Branch CurrentBranch { get; set; }
     public List<Branch> Branches { get; set; }
-    public List<Dictionary<Change, IChangesState>> Changes { get; set; }
+    public List<Change> Changes { get; set; }
     public IChangesState State { get; set; }
 
     public ChangesTracker()
     {
-        CurrentBranch = new Branch("master");
+        CurrentBranch = new Branch("master", this);
         Branches = new List<Branch> { CurrentBranch };
-        Changes = new List<Dictionary<Change, IChangesState>>();
+        Changes = new List<Change>();
         State = new WorkingDirectoryState(this);
     }
 
     public ChangesTracker(IChangesState state)
     {
-        CurrentBranch = new Branch("master");
+        CurrentBranch = new Branch("master",this);
         Branches = new List<Branch> { CurrentBranch };
-        Changes = new List<Dictionary<Change, IChangesState>>();
+        Changes = new List<Change>();
         State = state;
     }
 

@@ -1,5 +1,6 @@
 ﻿using Domain.Enums;
 using Domain.Models;
+using DomainServices.Context;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 
@@ -10,14 +11,14 @@ namespace Test.IssueStates
         private Issue _issue;
         public TodoStateTests()
         {
-            _issue = new Story("New Story", "Example", new Project(), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
+            _issue = new Story("New Story", "Example", new Project("Test", true, "Test"), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
             _issue.State = new ToDoState(_issue);
 
         }
         internal virtual void Setup()
         {
-            _issue = new Story("New Story", "Example", new Project(), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
+            _issue = new Story("New Story", "Example", new Project("Test", true, "Test"), 5, new Person(), DateTime.Now, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
             _issue.State = new ToDoState(_issue);
         }

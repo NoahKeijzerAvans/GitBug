@@ -51,7 +51,7 @@ public class HeadState : IChangesState
             var name = Console.ReadLine();
             if (name!.Any())
             {
-                Tracker.Branches.Add(new Branch(name!));
+                Tracker.Branches.Add(new Branch(name!, Tracker));
                 CheckoutBranch(name!);
             }
             else
@@ -83,7 +83,7 @@ public class HeadState : IChangesState
     {
         var branchExists = Tracker.Branches.Any(b => b.Name.Equals(name));
         if (!branchExists)
-            Tracker.Branches.Add(new Branch(name));
+            Tracker.Branches.Add(new Branch(name, Tracker));
 
         if (!Tracker.Changes.Any())
         {
