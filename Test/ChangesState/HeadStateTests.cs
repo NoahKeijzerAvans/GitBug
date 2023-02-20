@@ -1,0 +1,56 @@
+using DomainServices.Context.Commands;
+using DomainServices.Utils;
+
+namespace Test.ChangesState;
+public class HeadStateTests
+{
+
+    private ChangesTracker _changeTracker;
+    private Change _change;
+    public HeadStateTests()
+    {
+        _changeTracker = new ChangesTracker();
+        _change = new Change(new object());
+    }
+
+    protected virtual void Setup()
+    {
+        // Arrange
+        _changeTracker = new ChangesTracker();
+        _changeTracker.State = new DomainServices.States.ChangesState.HeadState(_changeTracker);
+        _change = new Change(new object());
+    }
+
+    // Unhappy flow :(
+
+    [Fact]
+    public void Should_Throw_Invalid_Operation_Exception_When_Push_To_Remote_Is_Called()
+    {
+        // Arrange
+        Setup();
+        // Act
+        void TestCode() => _changeTracker.PushToRemote();
+        // Assert
+        Assert.Throws<NotImplementedException>(TestCode);
+    }
+    [Fact]
+    public void Should_Throw_Invalid_Operation_Exception_When_Add_Change_Is_Called()
+    {
+        // Arrange
+        Setup();
+        // Act
+        void TestCode() => _changeTracker.AddChange(_change);
+        // Assert
+        Assert.Throws<InvalidOperationException>(TestCode);
+    }
+    [Fact]
+    public void Should_Throw_Invalid_Operation_Exception_When_Commit_Changes_Is_Called()
+    {
+        // Arrange
+        Setup();
+        // Act
+        void TestCode() => _changeTracker.CommitChanges("test");
+        // Assert
+        Assert.Throws<InvalidOperationException>(TestCode);
+    }
+}
