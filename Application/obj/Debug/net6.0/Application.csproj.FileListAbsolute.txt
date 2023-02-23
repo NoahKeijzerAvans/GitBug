@@ -13,3 +13,15 @@ C:\source\SOFA3\Application\obj\Debug\net6.0\refint\Application.dll
 C:\source\SOFA3\Application\obj\Debug\net6.0\Application.pdb
 C:\source\SOFA3\Application\obj\Debug\net6.0\Application.genruntimeconfig.cache
 C:\source\SOFA3\Application\obj\Debug\net6.0\ref\Application.dll
+C:\source\SOFA3\Application\bin\Debug\net6.0\DomainServices.deps.json
+C:\source\SOFA3\Application\bin\Debug\net6.0\DomainServices.runtimeconfig.json
+C:\source\SOFA3\Application\bin\Debug\net6.0\Domain.deps.json
+C:\source\SOFA3\Application\bin\Debug\net6.0\Domain.runtimeconfig.json
+C:\source\SOFA3\Application\bin\Debug\net6.0\Domain.exe
+C:\source\SOFA3\Application\bin\Debug\net6.0\DomainServices.exe
+C:\source\SOFA3\Application\bin\Debug\net6.0\ConsoleTables.dll
+C:\source\SOFA3\Application\bin\Debug\net6.0\Domain.dll
+C:\source\SOFA3\Application\bin\Debug\net6.0\DomainServices.dll
+C:\source\SOFA3\Application\bin\Debug\net6.0\DomainServices.pdb
+C:\source\SOFA3\Application\bin\Debug\net6.0\Domain.pdb
+C:\source\SOFA3\Application\obj\Debug\net6.0\Application.csproj.CopyComplete

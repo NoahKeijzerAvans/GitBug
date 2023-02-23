@@ -6,22 +6,22 @@ using System.Diagnostics;
 namespace DomainServices.Context.Commands;
 public class Change
 {
+    private Project Context { get; }
     public IChangesState State { get; set; }
-    public ChangesTracker Tracker { get; }
-    public dynamic Content { get; }
+    private dynamic _content;
 
-    public Change(dynamic content, ChangesTracker tracker)
+    public Change(dynamic content, Project context)
     {
-        Content = content;
-        Tracker = tracker;
-        State = new WorkingDirectoryState(Tracker);
+        Context = context;
+        _content = content;
+        State = new WorkingDirectoryState(context);
     }
 
-    public Change(ChangesTracker tracker)
+    public Change(Project context)
     {
-        Tracker = tracker;
-        Content = new object();
-        State = new WorkingDirectoryState();
+        Context = context;
+        _content = new object();
+        State = new WorkingDirectoryState(context);
     }
 }
 

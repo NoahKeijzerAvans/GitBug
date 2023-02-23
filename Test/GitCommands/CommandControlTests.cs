@@ -1,4 +1,5 @@
-﻿using DomainServices.GitCommands.Commands;
+﻿using DomainServices.Context;
+using DomainServices.GitCommands.Commands;
 using DomainServices.Utils;
 
 namespace Test.GitCommands;
@@ -7,7 +8,7 @@ public class CommandControlTests
     private CommandControl Control;
     public CommandControlTests()
     {
-        Control = new CommandControl(new ChangesTracker());
+        Control = new CommandControl(new Project("Test", false, "test environment"));
     }
 
     [Fact]

@@ -1,24 +1,26 @@
+using DomainServices.Context;
 using DomainServices.Context.Commands;
-using DomainServices.Utils;
+using DomainServices.States.ChangesState;
 
 namespace Test.ChangesState;
-public class HeadStateTests
+public sealed class HeadStateTests
 {
-
-    private ChangesTracker _changeTracker;
+    
     private Change _change;
+    private Project _project;
     public HeadStateTests()
     {
-        _changeTracker = new ChangesTracker();
-        _change = new Change(new object(), _changeTracker);
+        _project = new Project("Test", false, "test environment");
+        _project.State = new HeadState(_project);
+        _change = new Change(new object(), _project);
     }
 
-    protected virtual void Setup()
+    private void Setup() 
     {
         // Arrange
-        _changeTracker = new ChangesTracker();
-        _changeTracker.State = new DomainServices.States.ChangesState.HeadState(_changeTracker);
-        _change = new Change(new object(),_changeTracker);
+        _project = new Project("Test", false, "test environment");
+        _project.State = new HeadState(_project);
+        _change = new Change(new object(), _project);
     }
 
     // Unhappy flow :(
@@ -29,7 +31,7 @@ public class HeadStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _changeTracker.PushToRemote();
+        void TestCode() => _project.PushToRemote();
         // Assert
         Assert.Throws<NotImplementedException>(TestCode);
     }
@@ -39,7 +41,7 @@ public class HeadStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _changeTracker.AddChange(_change);
+        void TestCode() => _project.AddChange(_change);
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }
@@ -49,7 +51,7 @@ public class HeadStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _changeTracker.CommitChanges("test");
+        void TestCode() => _project.CommitChanges("test");
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }

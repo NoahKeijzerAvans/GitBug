@@ -8,23 +8,27 @@ namespace DomainServices.Context.Commands
     public class Branch
     {
         public string Name { get; }
+        public List<Change> Changes { get; set; }
         public List<Commit> Commits { get; }
-        public ChangesTracker Tracker { get; }
-        public IChangesState State { get; }
 
-        public Branch(string name, List<Commit> commits, ChangesTracker changesTracker)
+        public Branch(string name, List<Commit> commits)
         {
             Name = name;
             Commits = commits;
-            Tracker = changesTracker;
-            State = new WorkingDirectoryState(new ChangesTracker());
+            Changes = new List<Change>();
         }
-        public Branch(string name, ChangesTracker changesTracker)
+        public Branch(string name)
         {
             Name = name;
             Commits = new List<Commit>();
-            Tracker = changesTracker;
-            State = new WorkingDirectoryState(new ChangesTracker());
+            Changes = new List<Change>();
+        }
+
+        public IChangesState? GetCurrentState()
+        {
+            if (Changes.Any())
+                return Changes.Last().State;
+            return Commits.Any() ? Commits.Last().Changes.Last()!.State : null;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DomainServices.Context.Commands;
+﻿using DomainServices.Context;
+using DomainServices.Context.Commands;
 using DomainServices.Interfaces.Change;
 using DomainServices.Utils;
 
@@ -6,19 +7,13 @@ namespace DomainServices.States.ChangesState;
 
 public class HeadState : IChangesState
 {
-    private ChangesTracker Tracker { get; set; }
-
-    public HeadState()
+    private Project Context { get; set; }
+    public HeadState(Project context)
     {
-        Tracker = new ChangesTracker();
+        Context = context;
     }
 
-    public HeadState(ChangesTracker tracker)
-    {
-        Tracker = tracker;
-    }
-
-    public void AddChange(Change change)
+    public void AddChange(Change? change)
     {
         throw new InvalidOperationException();
     }
@@ -38,9 +33,9 @@ public class HeadState : IChangesState
         throw new NotImplementedException();
     }
 
-    public void SetContext(ChangesTracker context)
+    public void SetContext(Project context)
     {
-        Tracker = context;
+        Context = context;
     }
 
     public void CreateBranch()
@@ -51,7 +46,7 @@ public class HeadState : IChangesState
             var name = Console.ReadLine();
             if (name!.Any())
             {
-                Tracker.Branches.Add(new Branch(name!, Tracker));
+                Context.Branches.Add(new Branch(name!));
                 CheckoutBranch(name!);
             }
             else
@@ -63,9 +58,9 @@ public class HeadState : IChangesState
 
     public void DeleteBranch(Branch branch)
     {
-        if (!Tracker.Changes.Any())
+        if (!Context.Changes.Any())
         {
-            Tracker.Branches.Remove(branch);
+            Context.Branches.Remove(branch);
             Console.WriteLine("Branch removed successfully");
         }
         else
@@ -73,7 +68,7 @@ public class HeadState : IChangesState
             Console.WriteLine("There are still uncommitted changes, would you still like to delete the branch? y/n");
             var answer = Console.ReadLine();
             if (!answer!.Equals("y")) return;
-            Tracker.Branches.Remove(branch);
+            Context.Branches.Remove(branch);
             Console.WriteLine("Branch removed successfully");
         }
 
@@ -81,14 +76,14 @@ public class HeadState : IChangesState
 
     public void CheckoutBranch(string name)
     {
-        var branchExists = Tracker.Branches.Any(b => b.Name.Equals(name));
+        var branchExists = Context.Branches.Any(b => b.Name.Equals(name));
         if (!branchExists)
-            Tracker.Branches.Add(new Branch(name, Tracker));
+            Context.Branches.Add(new Branch(name));
 
-        if (!Tracker.Changes.Any())
+        if (!Context.Changes.Any())
         {
-            Tracker.CurrentBranch = Tracker.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
-            Console.WriteLine($"Current branch is {Tracker.CurrentBranch.Name}");
+            Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
+            Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
             ;
         }
         else
@@ -97,8 +92,8 @@ public class HeadState : IChangesState
                 "There are still uncommitted changes, would you like to bring the changes to the new branch? y/n");
             var answer = Console.ReadLine();
             if (!answer!.Equals("y")) return;
-            Tracker.CurrentBranch = Tracker.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
-            Console.WriteLine($"Current branch is {Tracker.CurrentBranch.Name}");
+            Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
+            Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
         }
     }
 }

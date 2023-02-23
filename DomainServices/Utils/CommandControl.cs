@@ -1,4 +1,5 @@
-﻿using DomainServices.Context.Commands;
+﻿using DomainServices.Context;
+using DomainServices.Context.Commands;
 using DomainServices.GitCommands;
 using DomainServices.GitCommands.Commands;
 
@@ -7,11 +8,11 @@ namespace DomainServices.Utils;
 public class CommandControl
 {
     public GitCommand Command { get; set; }
-    private ChangesTracker Tracker { get; }
-    public CommandControl(ChangesTracker tracker)
+    private Project Project { get; }
+    public CommandControl(Project project)
     {
-        Tracker = tracker;
-        Command = new NoCommand(Tracker);
+        Project = project;
+        Command = new NoCommand(project);
     }
 
     public void Listen()
@@ -24,11 +25,13 @@ public class CommandControl
             {
                 ChooseCommand(command!);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Console.WriteLine("Invalid operation.");
             }
         }
+        
+        // ReSharper disable once FunctionNeverReturns
     }
 
     private void SetCommand(GitCommand command)
@@ -47,26 +50,26 @@ public class CommandControl
         switch (command)
         {
             case { } when command.Contains("git add"):
-                SetCommand(new GitAddChangesCommand(Tracker));
-                CommandWasCalled(new Change(Tracker));
+                SetCommand(new GitAddChangesCommand(Project));
+                CommandWasCalled(new Change(Project));
                 break;
             case { } when command.Contains("git commit -m"):
                 var description = span[13..];
-                SetCommand(new GitCommitCommand(Tracker));
+                SetCommand(new GitCommitCommand(Project));
                 CommandWasCalled(description.ToString());
                 break;
             case { } when command.Contains("git pull origin"):
-                SetCommand(new GitPullCommand(Tracker));
+                SetCommand(new GitPullCommand(Project));
                 CommandWasCalled(null);
                 break;
             case { } when command.Contains("git push origin"):
                 var branch = span[16..];
-                SetCommand(new GitPushCommand(Tracker));
+                SetCommand(new GitPushCommand(Project));
                 CommandWasCalled(branch.ToString());
                 break;
             case { } when command.Contains("git checkout -b"):
                 var name = span[16..];
-                SetCommand(new GitCheckoutCommand(Tracker));
+                SetCommand(new GitCheckoutCommand(Project));
                 CommandWasCalled(name.ToString());
                 break;
             default:

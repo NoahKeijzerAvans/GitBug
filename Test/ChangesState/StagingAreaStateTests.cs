@@ -1,23 +1,26 @@
+using DomainServices.Context;
 using DomainServices.Context.Commands;
+using DomainServices.States.ChangesState;
 using DomainServices.Utils;
 
 namespace Test.ChangesState;
 public class StagingAreaStateTests
 {
-    private ChangesTracker _changeTracker;
     private Change _change;
+    private Project _project;
     public StagingAreaStateTests()
     {
-        _changeTracker = new ChangesTracker();
-        _change = new Change(new object(), _changeTracker);
+        _project = new Project("Test", false, "test environment");
+        _project.State = new StagingAreaState(_project);
+        _change = new Change(new object(), _project);
     }
 
     protected virtual void Setup()
     {
         // Arrange
-        _changeTracker = new ChangesTracker();
-        _changeTracker.State = new DomainServices.States.ChangesState.StagingAreaState(_changeTracker);
-        _change = new Change(new object(), _changeTracker);
+        _project = new Project("Test", false, "test environment");
+        _project.State = new StagingAreaState(_project);
+        _change = new Change(new object(), _project);
     }
 
     // Happy flow :)
@@ -28,8 +31,8 @@ public class StagingAreaStateTests
         // Arrange
         Setup();
         // Act
-        _changeTracker.AddChange(_change);
-        var sut = _changeTracker.Changes.First().State;
+        _project.AddChange(_change);
+        var sut = _project.Changes.First()!.State;
 
         // Assert
         Assert.IsType<DomainServices.States.ChangesState.StagingAreaState>(sut);
@@ -41,9 +44,9 @@ public class StagingAreaStateTests
         Setup();
 
         // Act
-        _changeTracker.AddChange(_change);
-        _changeTracker.CommitChanges("Test");
-        var sut = _changeTracker.CurrentBranch.Commits.First().State;
+        _project.AddChange(_change);
+        _project.CommitChanges("Test");
+        var sut = _project.CurrentBranch.GetCurrentState();
 
         // Assert
         Assert.IsType<DomainServices.States.ChangesState.HeadState>(sut);
@@ -56,9 +59,9 @@ public class StagingAreaStateTests
         Setup();
 
         // Act
-        _changeTracker.AddChange(_change);
-        _changeTracker.CommitChanges("Test");
-        var sut = _changeTracker.State;
+        _project.AddChange(_change);
+        _project.CommitChanges("Test");
+        var sut = _project.State;
 
         // Assert
         Assert.IsType<DomainServices.States.ChangesState.WorkingDirectoryState>(sut);
@@ -73,7 +76,7 @@ public class StagingAreaStateTests
         Setup();
 
         // Act
-        var sut = _changeTracker.State;
+        var sut = _project.State;
 
         // Assert
         Assert.IsType<DomainServices.States.ChangesState.StagingAreaState>(sut);
@@ -85,7 +88,7 @@ public class StagingAreaStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _changeTracker.PushToRemote();
+        void TestCode() => _project.PushToRemote();
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }

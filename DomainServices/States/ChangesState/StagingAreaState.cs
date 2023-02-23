@@ -1,4 +1,5 @@
-﻿using DomainServices.Context.Commands;
+﻿using DomainServices.Context;
+using DomainServices.Context.Commands;
 using DomainServices.Interfaces.Change;
 using DomainServices.Utils;
 
@@ -6,28 +7,30 @@ namespace DomainServices.States.ChangesState
 {
     public class StagingAreaState : IChangesState
     {
-        private ChangesTracker Tracker { get; set; }
+        private Project Context { get; set; }
 
-        public StagingAreaState(ChangesTracker tracker)
+        public StagingAreaState(Project context)
         {
-            Tracker = tracker;
+            Context = context;
         }
 
-        public void AddChange(Change change)
+        public void AddChange(Change? change)
         {
-            Tracker.Changes.Add(change);
-            Tracker.State = new StagingAreaState(Tracker);
+            Context.Changes.Add(change);
             Console.WriteLine("Changes added successfully");
         }
 
         public void CommitChanges(string description)
         {
-            if (Tracker.Changes.Any())
+            if (Context.Changes.Any())
             {
-                var commit = new Commit(description, Tracker.Changes, Tracker);
-                Tracker.CurrentBranch.Commits.Add(commit);
-                Tracker.Changes = new List<Change>();
-                Tracker.State = new WorkingDirectoryState(Tracker);
+                Context.Changes.ForEach(c =>
+                {
+                    c.State = new HeadState(Context);
+                });
+                var commit = new Commit(description, Context.Changes);
+                Context.CurrentBranch.Commits.Add(commit);
+                Context.Changes = new List<Change?>();
                 Console.WriteLine("Changes committed successfully");
 
             }
@@ -46,9 +49,9 @@ namespace DomainServices.States.ChangesState
             throw new InvalidOperationException();
         }
 
-        public void SetContext(ChangesTracker context)
+        public void SetContext(Project context)
         {
-            Tracker = context;
+            Context = context;
         }
 
         public void CreateBranch()
@@ -59,7 +62,7 @@ namespace DomainServices.States.ChangesState
                 var name = Console.ReadLine();
                 if (name!.Any())
                 {
-                    Tracker.Branches.Add(new Branch(name!, Tracker));
+                    Context.Branches.Add(new Branch(name!));
                     CheckoutBranch(name!);
                 }
                 else
@@ -71,9 +74,9 @@ namespace DomainServices.States.ChangesState
 
         public void DeleteBranch(Branch branch)
         {
-            if (!Tracker.Changes.Any())
+            if (!Context.Changes.Any())
             {
-                Tracker.Branches.Remove(branch);
+                Context.Branches.Remove(branch);
                 Console.WriteLine("Branch removed successfully");
             }
             else
@@ -82,7 +85,7 @@ namespace DomainServices.States.ChangesState
                     "There are still uncommitted changes, would you still like to delete the branch? y/n");
                 var answer = Console.ReadLine();
                 if (!answer!.Equals("y")) return;
-                Tracker.Branches.Remove(branch);
+                Context.Branches.Remove(branch);
                 Console.WriteLine("Branch removed successfully");
             }
 
@@ -90,14 +93,14 @@ namespace DomainServices.States.ChangesState
 
         public void CheckoutBranch(string name)
         {
-            var branchExists = Tracker.Branches.Any(b => b.Name.Equals(name));
+            var branchExists = Context.Branches.Any(b => b.Name.Equals(name));
             if (!branchExists)
-                Tracker.Branches.Add(new Branch(name, Tracker));
+                Context.Branches.Add(new Branch(name));
 
-            if (!Tracker.Changes.Any())
+            if (!Context.Changes.Any())
             {
-                Tracker.CurrentBranch = Tracker.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
-                Console.WriteLine($"Current branch is {Tracker.CurrentBranch.Name}");
+                Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
+                Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
                 ;
             }
             else
@@ -106,8 +109,8 @@ namespace DomainServices.States.ChangesState
                     "There are still uncommitted changes, would you like to bring the changes to the new branch? y/n");
                 var answer = Console.ReadLine();
                 if (!answer!.Equals("y")) return;
-                Tracker.CurrentBranch = Tracker.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
-                Console.WriteLine($"Current branch is {Tracker.CurrentBranch.Name}");
+                Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
+                Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
             }
         }
     }

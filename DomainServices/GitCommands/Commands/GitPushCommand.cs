@@ -1,17 +1,16 @@
-﻿using DomainServices.Utils;
+﻿using DomainServices.Context;
+using DomainServices.Utils;
 
 namespace DomainServices.GitCommands.Commands;
 
 public class GitPushCommand : GitCommand
 {
-    private ChangesTracker Tracker { get; }
-    public GitPushCommand(ChangesTracker tracker) : base(tracker)
+    public GitPushCommand(Project context) : base(context)
     {
-        Tracker = tracker;
     }
 
     public override void Excecute(dynamic? param)
     {
-        Tracker.PushToRemote();
+        Context.PushToRemote();
     }
 }

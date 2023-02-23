@@ -1,18 +1,16 @@
-﻿using DomainServices.Utils;
+﻿using DomainServices.Context;
+using DomainServices.Context.Commands;
+using DomainServices.Utils;
 
 namespace DomainServices.GitCommands.Commands;
 
 public class GitAddChangesCommand : GitCommand
 {
-    private ChangesTracker Tracker { get; }
-
+    public GitAddChangesCommand(Project context) : base(context)
+    {
+    }
     public override void Excecute(dynamic? change)
     {
-        Tracker.AddChange(change!);
-    }
-
-    public GitAddChangesCommand(ChangesTracker tracker) : base(tracker)
-    {
-        Tracker = tracker;
+        Context.AddChange((Change?)change);
     }
 }

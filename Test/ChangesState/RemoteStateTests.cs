@@ -1,23 +1,26 @@
+using DomainServices.Context;
 using DomainServices.Context.Commands;
+using DomainServices.States.ChangesState;
 using DomainServices.Utils;
 
 namespace Test.ChangesState;
 public class RemoteStateTests
 {
-    private ChangesTracker _changeTracker;
     private Change _change;
+    private Project _project;
     public RemoteStateTests()
     {
-        _changeTracker = new ChangesTracker();
-        _change = new Change(new object(), _changeTracker);
+        _project = new Project("Test", false, "test environment");
+        _project.State = new RemoteState(_project);
+        _change = new Change(new object(), _project);
     }
 
     protected virtual void Setup()
     {
         // Arrange
-        _changeTracker = new ChangesTracker();
-        _changeTracker.State = new DomainServices.States.ChangesState.RemoteState(_changeTracker);
-        _change = new Change(new object(), _changeTracker);
+        _project = new Project("Test", false, "test environment");
+        _project.State = new RemoteState(_project);
+        _change = new Change(new object(), _project);
     }
 
     // Unhappy flow :(
@@ -28,7 +31,7 @@ public class RemoteStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _changeTracker.PushToRemote();
+        void TestCode() => _project.PushToRemote();
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }
@@ -38,7 +41,7 @@ public class RemoteStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _changeTracker.AddChange(_change);
+        void TestCode() => _project.AddChange(_change);
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }
@@ -48,7 +51,7 @@ public class RemoteStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _changeTracker.CommitChanges("test");
+        void TestCode() => _project.CommitChanges("test");
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }
