@@ -7,51 +7,56 @@ namespace DomainServices.Context.Task;
 
 public abstract class Issue : IIssueStateable
 {
-    public string Name { get; set; }
-    public string Description { get; }
-    private Project _project;
-    public double StoryPoints { get; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
+    private Project? _project;
+    public double StoryPoints { get; set; }
     private List<Issue>? _subTasks;
-    private Person? _assignedTo;
+    public Person? AssignedTo { get; set; }
     private DateTime _dateAdded;
-    private Priority? _priority;
-    public IIssueState State { get; set; }
+    public Priority? Priority { get; set; }
+    public IIssueState? State { get; set; }
 
-    protected Issue(string name, string description, Project project, double storyPoints, Person? assignedTo, DateTime dateAdded, Priority priority, List<Issue>? subTasks)
+    protected Issue(string? name, string? description, Project? project, double storyPoints, Person? assignedTo, DateTime dateAdded, Priority priority, List<Issue>? subTasks)
     {
         Name = name;
         Description = description;
         _project = project;
         StoryPoints = storyPoints;
-        _assignedTo = assignedTo;
-        _dateAdded = dateAdded;
-        _priority = priority;
+        AssignedTo = assignedTo;
+        _dateAdded = DateTime.Now;
+        Priority = priority;
         _subTasks = subTasks;
         State = new ToDoState(this);
     }
 
+    protected Issue()
+    {
+        _dateAdded = DateTime.Now;
+    }
+
     public void SetIssueToDo()
     {
-        State.SetIssueToDo();
+        State!.SetIssueToDo();
     }
 
     public void SetIssueToInProgress()
     {
-        State.SetIssueToInProgress();
+        State!.SetIssueToInProgress();
     }
 
     public void SetIssueToDone()
     {
-        State.SetIssueToDone();
+        State!.SetIssueToDone();
     }
 
     public void SetIssueToReview()
     {
-        State.SetIssueToReview();
+        State!.SetIssueToReview();
     }
 
     public void SetIssueToCanceled()
     {
-        State.SetIssueToCanceled();
+        State!.SetIssueToCanceled();
     }
 }

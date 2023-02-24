@@ -57,6 +57,7 @@ namespace Test.IssueComposite
             var bug = new Bug("New Bug", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty, new Person(), new List<Issue>());
             var story = new Story("New Story", "Example", new Project("Test", true, "Test"), 1, new Person(), DateTime.Now, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
+            
             story.State = new DoneState(story);
             bug.State = new DoneState(story);
 

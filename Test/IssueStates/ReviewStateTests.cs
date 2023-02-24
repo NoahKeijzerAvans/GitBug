@@ -2,6 +2,7 @@
 using Domain.Models;
 using DomainServices.Context;
 using DomainServices.Context.Task;
+using DomainServices.Interfaces.Issue;
 using DomainServices.States.IssuesState;
 
 namespace Test.IssueStates;

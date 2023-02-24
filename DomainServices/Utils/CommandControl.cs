@@ -2,6 +2,7 @@
 using DomainServices.Context.Commands;
 using DomainServices.GitCommands;
 using DomainServices.GitCommands.Commands;
+using DomainServices.GitCommands.Commands.Tasks;
 
 namespace DomainServices.Utils;
 
@@ -79,6 +80,10 @@ public class CommandControl
                 break;
             case { } when command.Contains("clear"):
                 SetCommand(new GitClearCommand(Project));
+                CommandWasCalled(null);
+                break;
+            case { } when command.Contains("git task"):
+                SetCommand(new GitAddTaskCommand(Project));
                 CommandWasCalled(null);
                 break;
             default:
