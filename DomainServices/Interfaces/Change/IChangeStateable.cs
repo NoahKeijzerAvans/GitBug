@@ -5,7 +5,7 @@ namespace DomainServices.Interfaces.Change;
 public interface IChangeStateable
 {
     public void CommitChanges(string description);
-    public void AddChange(Context.Commands.Change change);
+    public void AddChange(Context.Commands.Change? change);
     public void PushToRemote();
     public void CreateBranch();
     public void DeleteBranch(Branch branch);

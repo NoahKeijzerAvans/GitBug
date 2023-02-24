@@ -1,5 +1,6 @@
 ﻿using Domain.Enums;
 using Domain.Models;
+using DomainServices.Context;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 
@@ -10,14 +11,14 @@ public class CanceledStateTests
     private Issue _issue;
     public CanceledStateTests()
     {
-        _issue = new Story("New Story", "Example", new Project(), 5, new Person(), DateTime.Now, Priority.High, string.Empty,
+        _issue = new Story("New Story", "Example", new Project("Test", true, "Test"), 5, new Person(), DateTime.Now, Priority.High, string.Empty,
             "when the task is finished the task is finished", new List<Issue>());
         _issue.State = new CanceledState(_issue);
     }
 
     internal virtual void Setup()
     {
-        _issue = new Story("New Story", "Example", new Project(), 5, new Person(), DateTime.Now, Priority.High, string.Empty,
+        _issue = new Story("New Story", "Example", new Project("Test", true, "Test"), 5, new Person(), DateTime.Now, Priority.High, string.Empty,
             "when the task is finished the task is finished", new List<Issue>());
         _issue.State = new CanceledState(_issue);
     }

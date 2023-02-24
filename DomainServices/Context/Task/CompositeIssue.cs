@@ -1,11 +1,10 @@
-﻿using Domain.Models;
-using DomainServices.States.IssuesState;
+﻿using DomainServices.States.IssuesState;
 
 namespace DomainServices.Context.Task;
 
 public class CompositeIssue : Issue
 {
-    public readonly List<Issue> _issues = new();
+    public readonly List<Issue> Issues = new();
     public CompositeIssue(string name, string description, Project project) : base(name, description, project, 0, null,
         DateTime.Now, 0, null)
     {
@@ -13,11 +12,11 @@ public class CompositeIssue : Issue
 
     public void Add(Issue issue)
     {
-        _issues.Add(issue);
+        Issues.Add(issue);
     }
 
-    public double TotalStoryPoints => _issues.Sum(i => i.StoryPoints);
-    public double TotalCompletedStoryPoints => _issues.Sum(i =>
+    public double TotalStoryPoints => Issues.Sum(i => i.StoryPoints);
+    public double TotalCompletedStoryPoints => Issues.Sum(i =>
     {
         if (i.State.GetType() == typeof(DoneState))
             return i.StoryPoints;

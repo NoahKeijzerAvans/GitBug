@@ -15,11 +15,15 @@ public class ScrumBoard
 
     public void Draw()
     {
+        Console.WriteLine();
+        Console.WriteLine($"{Issues.Name}");
+        Console.WriteLine($"{Issues.Description}");
+        Console.WriteLine();
         Console.WriteLine($"Total Story Points: {Issues.TotalStoryPoints}");
         Console.WriteLine($"Total Completed Story Points: {Issues.TotalCompletedStoryPoints}");
         Console.WriteLine();
         var table = new ConsoleTable("To Do", "In Progress", "To Review", "Done", "Canceled");
-        foreach (var issue in Issues._issues)
+        foreach (var issue in Issues.Issues)
         {
             switch (issue.State)
             {
@@ -41,6 +45,7 @@ public class ScrumBoard
             }
         }
         table.Write();
+        Console.WriteLine();
     }
 
     private static void AddRowTodo(ConsoleTable table, Issue issue)

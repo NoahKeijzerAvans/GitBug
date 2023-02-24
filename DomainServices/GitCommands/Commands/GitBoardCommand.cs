@@ -1,10 +1,11 @@
-﻿using DomainServices.Utils;
+﻿using DomainServices.Context;
+using DomainServices.Utils;
 
 namespace DomainServices.GitCommands.Commands;
 
 public class GitBoardCommand : GitCommand
 {
-    public GitBoardCommand(ChangesTracker tracker) : base(tracker)
+    public GitBoardCommand(Project context) : base(context)
     {
     }
 

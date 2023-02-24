@@ -1,18 +1,16 @@
-﻿using DomainServices.Utils;
+﻿using DomainServices.Context;
+using DomainServices.Utils;
 
 namespace DomainServices.GitCommands.Commands;
 
 public class GitCheckoutCommand : GitCommand
 {
-    private ChangesTracker Tracker { get; }
-
-    public GitCheckoutCommand(ChangesTracker tracker) : base(tracker)
+    public GitCheckoutCommand(Project context) : base(context)
     {
-        Tracker = tracker;
     }
 
     public override void Excecute(dynamic? param)
     {
-        Tracker.CheckoutBranch(param);
+        Context.CheckoutBranch(param);
     }
 }
