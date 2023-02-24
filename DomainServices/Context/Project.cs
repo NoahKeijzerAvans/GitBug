@@ -16,26 +16,22 @@ public class Project: IChangeStateable
     private List<Person> _contributors;
     public Branch CurrentBranch { get; set; }
     public List<Branch> Branches { get; }
-    public List<Change?> Changes { get; set; }
-    public IChangesState State
-    {
-        get => CurrentBranch.GetCurrentState() ?? new WorkingDirectoryState(this);
-        set => SetState(value);
-    }
+
+    public IChangesState State { get; set; }
 
     public Project(string name, bool isPrivate, string description)
     {
-        _projectIdGuid = Guid.NewGuid();
-        _contributors = new List<Person>();
         CurrentBranch = new Branch("master");
         Branches = new List<Branch>
         {
             CurrentBranch
         };
+        State = CurrentBranch.GetCurrentState() ?? new WorkingDirectoryState(this);
+        _projectIdGuid = Guid.NewGuid();
+        _contributors = new List<Person>();
         _name = name;
         _isPrivate = isPrivate;
         _description = description;
-        Changes = new List<Change?>();
     }
     public void CommitChanges(string description)
     {
@@ -65,15 +61,17 @@ public class Project: IChangeStateable
     public void DeleteBranch(Branch branch)
     {
         State.DeleteBranch(branch);
+        UpdateCurrentState();
     }
 
     public void CheckoutBranch(string name)
     {
         State.CheckoutBranch(name);
+        UpdateCurrentState();
     }
 
-    private void SetState(IChangesState state)
+    private void UpdateCurrentState()
     {
-        State = state;
+        State = CurrentBranch.GetCurrentState() ?? new WorkingDirectoryState(this);
     }
 }

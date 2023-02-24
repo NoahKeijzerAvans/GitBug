@@ -27,7 +27,7 @@ namespace DomainServices.Context.Commands
         public IChangesState? GetCurrentState()
         {
             if (Changes.Any())
-                return Changes.Last().State;
+                return Changes.Last()!.State;
             return Commits.Any() ? Commits.Last().Changes.Last()!.State : null;
         }
     }

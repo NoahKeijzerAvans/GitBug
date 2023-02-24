@@ -56,7 +56,7 @@ namespace DomainServices.States.ChangesState
 
         public void DeleteBranch(Branch branch)
         {
-            if (!Context.Changes.Any())
+            if (!Context.CurrentBranch.Changes.Any())
             {
                 Context.Branches.Remove(branch);
                 Console.WriteLine("Branch removed successfully");
@@ -78,7 +78,7 @@ namespace DomainServices.States.ChangesState
             if (!branchExists)
                 Context.Branches.Add(new Branch(name));
 
-            if (!Context.Changes.Any()) return;
+            if (!Context.CurrentBranch.Changes.Any()) return;
             {
                 Console.WriteLine("There are still uncommitted changes, would you like to bring the changes to the new branch? y/n");
                 var answer = Console.ReadLine();

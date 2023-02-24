@@ -16,17 +16,21 @@ namespace DomainServices.States.ChangesState
         public void AddChange(Change? change)
         {
             change!.State = new StagingAreaState(Context);
-            Context.Changes.Add(change);
+            Context.CurrentBranch.Changes.Add(change);
             Console.WriteLine("Changes added successfully");
         }
 
         public void CommitChanges(string description)
         {
-            if (Context.Changes.Any())
+            if (Context.CurrentBranch.Changes.Any())
             {
-                var commit = new Commit(description, Context.Changes);
+                Context.CurrentBranch.Changes.ForEach(c =>
+                {
+                    c!.State = new HeadState(Context);
+                });
+                var commit = new Commit(description, Context.CurrentBranch.Changes!);
                 Context.CurrentBranch.Commits.Add(commit);
-                Context.Changes = new List<Change?>();
+                Context.CurrentBranch.Changes = new List<Change?>();
                 Console.WriteLine("Changes committed successfully");
 
             }
@@ -67,7 +71,7 @@ namespace DomainServices.States.ChangesState
 
         public void DeleteBranch(Branch branch)
         {
-            if (!Context.Changes.Any())
+            if (!Context.CurrentBranch.Changes.Any())
             {
                 Context.Branches.Remove(branch);
                 Console.WriteLine("Branch removed successfully");
@@ -89,7 +93,7 @@ namespace DomainServices.States.ChangesState
             if (!branchExists)
                 Context.Branches.Add(new Branch(name));
 
-            if (!Context.Changes.Any())
+            if (!Context.CurrentBranch.Changes.Any())
             {
                 Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
                 Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}"); ;

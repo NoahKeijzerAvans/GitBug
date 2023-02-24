@@ -38,7 +38,8 @@ public class CommandControl
     {
         Command = command;
     }
-
+    
+    // Invoker
     private void CommandWasCalled(dynamic? paramether)
     {
         Command.Excecute(paramether);

@@ -1,10 +1,11 @@
 using DomainServices.Context;
 using DomainServices.Context.Commands;
+using DomainServices.Interfaces.Change;
 using DomainServices.States.ChangesState;
 using DomainServices.Utils;
 
 namespace Test.ChangesState;
-public class WorkingDirectoryStateTests
+public sealed class WorkingDirectoryStateTests
 {
     private Change _change;
     private Project _project;
@@ -15,56 +16,41 @@ public class WorkingDirectoryStateTests
         _project.State = new WorkingDirectoryState(_project);
         _change = new Change(new object(), _project);
     }
-
-    protected virtual void Setup()
-    {
-        // Arrange
-        _project = new Project("Test", false, "test environment");
-        _project.State = new WorkingDirectoryState(_project);
-        _change = new Change(new object(), _project);
-    }
+    
 
     // Happy flow :)
 
     [Fact]
     public void Should_Change_State_To_Staging_Area_When_Changes_Are_First_Added()
     {
-        // Arrange
-        Setup();
         // Act
         _project.AddChange(_change);
-        var sut = _project.Changes.First()!.State;
+        var sut = _project.CurrentBranch.Changes.First()!.State;
 
         // Assert
-        Assert.IsType<DomainServices.States.ChangesState.StagingAreaState>(sut);
+        Assert.IsType<StagingAreaState>(sut);
     }
     [Fact]
     public void Should_Change_State_To_Head_When_Changes_Are_Committed()
     {
-        // Arrange
-        Setup();
-
         // Act
         _project.AddChange(_change);
         _project.CommitChanges("Test");
         var sut = _project.CurrentBranch.GetCurrentState();
 
         // Assert
-        Assert.IsType<DomainServices.States.ChangesState.HeadState>(sut);
+        Assert.IsType<HeadState>(sut);
     }
     [Fact]
-    public void Should_Change_State_Of_Changes_To_Head_But_Branch_Remains_On_Working_Directory_When_Changes_Are_Committed()
+    public void Should_Change_State_Of_Changes_And_Branch_To_Head_When_Changes_Are_Committed()
     {
-        // Arrange
-        Setup();
-
         // Act
         _project.AddChange(_change);
         _project.CommitChanges("Test");
-        var sut = _project.State;
+        var sut = _project.CurrentBranch.GetCurrentState();
 
         // Assert
-        Assert.IsType<DomainServices.States.ChangesState.WorkingDirectoryState>(sut);
+        Assert.IsType<HeadState>(sut);
     }
 
     // Unhappy flow :(
@@ -72,21 +58,17 @@ public class WorkingDirectoryStateTests
     [Fact]
     public void Should_Not_Change_State_When_Commit_Is_Called_With_No_Changes()
     {
-        // Arrange
-        Setup();
-
         // Act
+        _project.CommitChanges("no changes");
         var sut = _project.State;
 
         // Assert
-        Assert.IsType<DomainServices.States.ChangesState.WorkingDirectoryState>(sut);
+        Assert.IsType<WorkingDirectoryState>(sut);
     }
 
     [Fact]
     public void Should_Throw_Invalid_Operation_Exception_When_Push_To_Remote_Is_Called()
     {
-        // Arrange
-        Setup();
         // Act
         void TestCode() => _project.PushToRemote();
         // Assert

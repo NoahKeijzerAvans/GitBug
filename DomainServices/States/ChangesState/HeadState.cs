@@ -58,7 +58,7 @@ public class HeadState : IChangesState
 
     public void DeleteBranch(Branch branch)
     {
-        if (!Context.Changes.Any())
+        if (!Context.CurrentBranch.Changes.Any())
         {
             Context.Branches.Remove(branch);
             Console.WriteLine("Branch removed successfully");
@@ -80,7 +80,7 @@ public class HeadState : IChangesState
         if (!branchExists)
             Context.Branches.Add(new Branch(name));
 
-        if (!Context.Changes.Any())
+        if (!Context.CurrentBranch.Changes.Any())
         {
             Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
             Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
