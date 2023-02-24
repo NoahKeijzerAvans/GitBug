@@ -13,12 +13,12 @@ public class Project: IChangeStateable
     private string _name;
     private bool _isPrivate;
     private string _description;
-    private List<Person> _contributors;
+    public List<Person> Contributors { get; set; }
     public Branch CurrentBranch { get; set; }
     public List<Branch> Branches { get; }
 
     public IChangesState State { get; set; }
-    public CompositeIssue Issues { get; }
+    public CompositeIssue Issues { get; set; }
 
     public Project(string name, bool isPrivate, string description)
     {
@@ -30,7 +30,7 @@ public class Project: IChangeStateable
         Issues = new CompositeIssue("Scrum Board", "This is the scrum board for your GitBug repo.", this);
         State = CurrentBranch.GetCurrentState() ?? new WorkingDirectoryState(this);
         _projectIdGuid = Guid.NewGuid();
-        _contributors = new List<Person>();
+        Contributors = new List<Person>();
         _name = name;
         _isPrivate = isPrivate;
         _description = description;
