@@ -1,8 +1,7 @@
 ﻿using DomainServices.Context;
-using DomainServices.Context.Commands;
+using DomainServices.Context.VersionControl;
 using DomainServices.GitCommands;
 using DomainServices.GitCommands.Commands;
-using DomainServices.GitCommands.Commands.Tasks;
 
 namespace DomainServices.Utils;
 

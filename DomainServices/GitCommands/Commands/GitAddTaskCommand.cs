@@ -1,10 +1,9 @@
-﻿using System.Reflection;
-using Domain.Enums;
+﻿using Domain.Enums;
 using Domain.Models;
 using DomainServices.Context;
 using DomainServices.Context.Task;
 
-namespace DomainServices.GitCommands.Commands.Tasks;
+namespace DomainServices.GitCommands.Commands;
 
 public class GitAddTaskCommand: GitCommand
 {
@@ -49,7 +48,7 @@ public class GitAddTaskCommand: GitCommand
         SelectTypeTask();
     }
     
-    private Person? SelectPerson()
+    private Person SelectPerson()
     {
         EnterPressed = false;
         while (!EnterPressed)
@@ -72,7 +71,7 @@ public class GitAddTaskCommand: GitCommand
         EnterPressed = false;
         while (!EnterPressed)
         {
-            foreach (var option in OptionsPriority!)
+            foreach (var option in OptionsPriority)
             {
                 Console.WriteLine(option.Value ? $"[x] {option.Key} " : $"[] {option.Key} ");
             }
@@ -80,9 +79,9 @@ public class GitAddTaskCommand: GitCommand
             OptionsPriority = ReadKeyPressed(CursorTop, OptionsPriority);
         }
 
-        CursorTop =+ Console.CursorTop + OptionsPriority!.Count;
+        CursorTop =+ Console.CursorTop + OptionsPriority.Count;
         Console.SetCursorPosition(0, CursorTop);
-        return OptionsPriority!.FirstOrDefault(p => p.Value).Key;
+        return OptionsPriority.FirstOrDefault(p => p.Value).Key;
     }
     private void SelectTypeTask()
     {
@@ -111,11 +110,11 @@ public class GitAddTaskCommand: GitCommand
         Console.Write("Enter the name of the issue: ");
         issueToBeAdded!.Name = Console.ReadLine()!;
         Console.Write("Enter the description of the issue: ");
-        issueToBeAdded!.Description = Console.ReadLine();
+        issueToBeAdded.Description = Console.ReadLine()!;
         Console.WriteLine("Select the priority of the issue: ");
         issueToBeAdded.Priority = SelectPriority();
         Console.Write("Enter the amount of story points assigned to the issue: ");
-        issueToBeAdded!.StoryPoints = Convert.ToDouble(Console.ReadLine());
+        issueToBeAdded.StoryPoints = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("Enter the name person assigned to the issue: ");
         issueToBeAdded.AssignedTo = SelectPerson();
         Context.Issues.Add(issueToBeAdded);
@@ -172,9 +171,9 @@ public class GitAddTaskCommand: GitCommand
     private Issue EnterExtraInformationForProblem(Problem problem)
     {
         Console.Write("Provide a summary of the problem: ");
-        problem.Summary = Console.ReadLine();
+        problem.Summary = Console.ReadLine()!;
         Console.Write("Provide a request type of the problem: ");
-        problem.RequestType = Console.ReadLine();
+        problem.RequestType = Console.ReadLine()!;
         return problem;
     }
 
@@ -205,7 +204,7 @@ public class GitAddTaskCommand: GitCommand
         Console.Write("Provide a summary of the bug: ");
         bug.Summary = Console.ReadLine()!;
         Console.WriteLine("Provide the name of the person who requested: ");
-        bug!.RequestedBy = SelectPerson();
+        bug.RequestedBy = SelectPerson();
         return bug;
     }
     

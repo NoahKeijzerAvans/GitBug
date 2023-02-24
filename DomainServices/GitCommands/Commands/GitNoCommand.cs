@@ -1,5 +1,4 @@
 ﻿using DomainServices.Context;
-using DomainServices.Utils;
 
 namespace DomainServices.GitCommands.Commands;
 
