@@ -8,25 +8,25 @@ namespace DomainServices.Context.Task;
 public abstract class Issue : IIssueStateable
 {
     public string Name { get; set; }
-    public string Description { get; set; }
-    public Project Project { get; set; }
-    public double StoryPoints { get; set; }
-    public List<Issue>? SubTasks { get; set; }
-    public Person? AssignedTo { get; set; }
-    public DateTime DateAdded { get; set; }
-    public Priority? Priority { get; set; }
+    public string Description { get; }
+    private Project _project;
+    public double StoryPoints { get; }
+    private List<Issue>? _subTasks;
+    private Person? _assignedTo;
+    private DateTime _dateAdded;
+    private Priority? _priority;
     public IIssueState State { get; set; }
 
     protected Issue(string name, string description, Project project, double storyPoints, Person? assignedTo, DateTime dateAdded, Priority priority, List<Issue>? subTasks)
     {
         Name = name;
         Description = description;
-        Project = project;
+        _project = project;
         StoryPoints = storyPoints;
-        AssignedTo = assignedTo;
-        DateAdded = dateAdded;
-        Priority = priority;
-        SubTasks = subTasks;
+        _assignedTo = assignedTo;
+        _dateAdded = dateAdded;
+        _priority = priority;
+        _subTasks = subTasks;
         State = new ToDoState(this);
     }
 

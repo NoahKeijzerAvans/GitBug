@@ -1,9 +1,9 @@
 ﻿using DomainServices.Context.Commands;
-using DomainServices.Utils;
-using System.Diagnostics;
 using DomainServices.States.ChangesState;
 using Domain.Models;
+using DomainServices.Context.Task;
 using DomainServices.Interfaces.Change;
+using Change = DomainServices.Context.Commands.Change;
 
 namespace DomainServices.Context;
 
@@ -18,6 +18,7 @@ public class Project: IChangeStateable
     public List<Branch> Branches { get; }
 
     public IChangesState State { get; set; }
+    public CompositeIssue Issues { get; }
 
     public Project(string name, bool isPrivate, string description)
     {
@@ -26,6 +27,7 @@ public class Project: IChangeStateable
         {
             CurrentBranch
         };
+        Issues = new CompositeIssue("Scrum Board", "This is the scrum board for your GitBug repo.", this);
         State = CurrentBranch.GetCurrentState() ?? new WorkingDirectoryState(this);
         _projectIdGuid = Guid.NewGuid();
         _contributors = new List<Person>();

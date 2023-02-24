@@ -79,7 +79,7 @@ namespace Test.IssueComposite
 
             // Act
             _compositeIssue.Add(bug);
-            var sut = _compositeIssue._issues.Count;
+            var sut = _compositeIssue.Issues.Count;
             // Assert
             Assert.Equal(1, sut);
         }
@@ -92,7 +92,7 @@ namespace Test.IssueComposite
 
             // Act
             _compositeIssue.Add(change);
-            var sut = _compositeIssue._issues.Count;
+            var sut = _compositeIssue.Issues.Count;
             // Assert
             Assert.Equal(1, sut);
         }
@@ -105,7 +105,7 @@ namespace Test.IssueComposite
 
             // Act
             _compositeIssue.Add(epic);
-            var sut = _compositeIssue._issues.Count;
+            var sut = _compositeIssue.Issues.Count;
             // Assert
             Assert.Equal(1, sut);
         }
@@ -119,7 +119,7 @@ namespace Test.IssueComposite
 
             // Act
             _compositeIssue.Add(incident);
-            var sut = _compositeIssue._issues.Count;
+            var sut = _compositeIssue.Issues.Count;
             // Assert
             Assert.Equal(1, sut);
         }
@@ -132,7 +132,7 @@ namespace Test.IssueComposite
 
             // Act
             _compositeIssue.Add(problem);
-            var sut = _compositeIssue._issues.Count;
+            var sut = _compositeIssue.Issues.Count;
             // Assert
             Assert.Equal(1, sut);
         }
@@ -145,7 +145,7 @@ namespace Test.IssueComposite
 
             // Act
             _compositeIssue.Add(story);
-            var sut = _compositeIssue._issues.Count;
+            var sut = _compositeIssue.Issues.Count;
             // Assert
             Assert.Equal(1, sut);
         }

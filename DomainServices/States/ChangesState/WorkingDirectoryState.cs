@@ -30,7 +30,7 @@ namespace DomainServices.States.ChangesState
                 });
                 var commit = new Commit(description, Context.CurrentBranch.Changes!);
                 Context.CurrentBranch.Commits.Add(commit);
-                Context.CurrentBranch.Changes = new List<Change?>();
+                Context.CurrentBranch.Changes = new List<Change>();
                 Console.WriteLine("Changes committed successfully");
 
             }

@@ -2,12 +2,12 @@
 
 public class Commit
 {
-    public List<Change?> Changes { get; }
-    private string Description { get; }
+    public List<Change> Changes { get; }
+    private string _description;
 
-    public Commit(string description, List<Change?> changes)
+    public Commit(string description, List<Change> changes)
     {
         Changes = changes;
-        Description = description;
+        _description = description;
     }
 }

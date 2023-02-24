@@ -25,7 +25,7 @@ public class CommandControl
             {
                 ChooseCommand(command!);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Invalid operation.");
             }
@@ -72,6 +72,14 @@ public class CommandControl
                 var name = span[16..];
                 SetCommand(new GitCheckoutCommand(Project));
                 CommandWasCalled(name.ToString());
+                break;
+            case { } when command.Contains("git board"):
+                SetCommand(new DrawBoardCommand(Project));
+                CommandWasCalled(null);
+                break;
+            case { } when command.Contains("clear"):
+                SetCommand(new GitClearCommand(Project));
+                CommandWasCalled(null);
                 break;
             default:
                 Console.WriteLine("Valid operations: ");
