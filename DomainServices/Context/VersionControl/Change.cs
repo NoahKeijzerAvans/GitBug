@@ -1,13 +1,13 @@
 ﻿using DomainServices.Interfaces.Change;
 using DomainServices.States.ChangesState;
-using DomainServices.Utils;
-using System.Diagnostics;
 
-namespace DomainServices.Context.Commands;
+namespace DomainServices.Context.VersionControl;
 public class Change
 {
+    // ReSharper disable once UnusedAutoPropertyAccessor.Local
     private Project Context { get; }
     public IChangesState State { get; set; }
+    // ReSharper disable once NotAccessedField.Local
     private dynamic _content;
 
     public Change(dynamic content, Project context)

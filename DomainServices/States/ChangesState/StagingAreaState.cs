@@ -1,7 +1,6 @@
 ﻿using DomainServices.Context;
-using DomainServices.Context.Commands;
+using DomainServices.Context.VersionControl;
 using DomainServices.Interfaces.Change;
-using DomainServices.Utils;
 
 namespace DomainServices.States.ChangesState
 {
@@ -26,9 +25,9 @@ namespace DomainServices.States.ChangesState
             {
                 Context.CurrentBranch.Changes.ForEach(c =>
                 {
-                    c!.State = new HeadState(Context);
+                    c.State = new HeadState(Context);
                 });
-                var commit = new Commit(description, Context.CurrentBranch.Changes!);
+                var commit = new Commit(description, Context.CurrentBranch.Changes);
                 Context.CurrentBranch.Commits.Add(commit);
                 Context.CurrentBranch.Changes = new List<Change?>()!;
                 Console.WriteLine("Changes committed successfully");
@@ -101,7 +100,6 @@ namespace DomainServices.States.ChangesState
             {
                 Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
                 Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
-                ;
             }
             else
             {

@@ -1,7 +1,6 @@
 ﻿using DomainServices.Context;
-using DomainServices.Context.Commands;
+using DomainServices.Context.VersionControl;
 using DomainServices.Interfaces.Change;
-using DomainServices.Utils;
 
 namespace DomainServices.States.ChangesState;
 
@@ -84,7 +83,6 @@ public class HeadState : IChangesState
         {
             Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
             Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
-            ;
         }
         else
         {
