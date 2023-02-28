@@ -18,6 +18,7 @@ public class ScrumBoard
         Console.WriteLine();
         Console.WriteLine($"{Issues.Name}");
         Console.WriteLine($"{Issues.Description}");
+        Issues.Issues.ForEach(i => { i.State ??= new ToDoState(i); });
         Console.WriteLine();
         Console.WriteLine($"Total Story Points: {Issues.TotalStoryPoints}");
         Console.WriteLine($"Total Completed Story Points: {Issues.TotalCompletedStoryPoints}");
