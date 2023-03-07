@@ -5,8 +5,7 @@ namespace DomainServices.Context.Task;
 public class CompositeIssue : Issue
 {
     public readonly List<Issue> Issues = new();
-    public CompositeIssue(string? name, string? description, Project? project) : base(name, description, project, 0, null,
-        DateTime.Now, 0, null)
+    public CompositeIssue(string name, string description) : base(name, description, 0, null, 0, null)
     {
     }
 

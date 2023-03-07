@@ -5,10 +5,13 @@ namespace DomainServices.Context.Task;
 
 public class Change : Issue
 {
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
     public string? Summary { get; set; }
+    
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
     public string? RequestType{ get; set; }
 
-    public Change(string? name, string? description, Project? project, double storyPoints, Person? assignedTo, DateTime dateAdded, Priority priority, string? summary, string? requestType, List<Issue>? subTasks) : base(name, description, project, storyPoints, assignedTo, dateAdded, priority, subTasks)
+    public Change(string name, string description, double storyPoints, Person assignedTo, Priority priority, string summary, string requestType, List<Issue> subTasks) : base(name, description, storyPoints, assignedTo, priority, subTasks)
     {
         RequestType = requestType;
         Summary = summary;

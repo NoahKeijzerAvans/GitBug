@@ -5,16 +5,20 @@ namespace DomainServices.Context.Task;
 
 public class Bug : Issue
 {
-    public string? Summary { get; set; }
-    public Person? RequestedBy { get; set; }
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    public string Summary { get; set; }
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    public Person RequestedBy { get; set; }
 
-    public Bug(string? name, string? description, Project? project, double storyPoints, Person? assignedTo, DateTime dateAdded, Priority priority, string? summary, Person? requestedBy, List<Issue>? subTasks) : base(name, description, project, storyPoints, assignedTo, dateAdded, priority, subTasks)
+    public Bug(string name, string description, double storyPoints, Person assignedTo, Priority priority, string summary, Person requestedBy, List<Issue> subTasks) : base(name, description, storyPoints, assignedTo, priority, subTasks)
     {
         Summary = summary;
         RequestedBy = requestedBy;
     }
 
+#pragma warning disable CS8618
     public Bug()
+#pragma warning restore CS8618
     {
         
     }

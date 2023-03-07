@@ -4,8 +4,9 @@ namespace DomainServices.Context.Task;
 
 public class Epic : Issue
 {
-    public string? Summary { get; set; }
-    public Epic(string? name, string? description, Project? project, DateTime dateAdded, Priority priority, string? summary, string requestType, List<Issue>? subTasks) : base(name, description, project, 0, null, dateAdded, priority, subTasks)
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    public string Summary { get; set; }
+    public Epic(string name, string description, Priority priority, string summary, List<Issue> subTasks) : base(name, description, 0, null!, priority, subTasks)
     {
         Summary = summary;
     }
@@ -14,7 +15,9 @@ public class Epic : Issue
         return "Epic";
     }
 
+#pragma warning disable CS8618
     public Epic()
+#pragma warning restore CS8618
     {
         
     }
