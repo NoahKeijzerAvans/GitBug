@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "uqwMiFCcZCTgemDTE8OcQJiC3gJP08Li3O/KgjpLkjTn5xsjF1Eeu0MD6NDMIHSaytPXm4loVwKHi1i62RH28w==",
+  "dgSpecHash": "hzAOi6ltGGhbnKnQTTZkrx3HDlYLbsDy4ek39SViimU0XIwFtoGhgJpodojpNIksqsw3Azrvn2bNdBfQL63FCA==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",

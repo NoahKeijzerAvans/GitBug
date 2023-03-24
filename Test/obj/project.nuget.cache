@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "cGZ5j8IZZSOd2LSAlH60At/TFZJcW5k20pcV0gmA5E2/WVEDIsXcwv9sz01p6LuVZQmCixROVqG0OBgTXb5C/g==",
+  "dgSpecHash": "PU9lbyCPsuHR/x9LqH8T23eEUpYP52bhsalAtDn9hurQNkC+jdSDwG+XkztAXlTSByuIycSe/t9COCsWaY6dCg==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.net.test.sdk\\17.1.0\\microsoft.net.test.sdk.17.1.0.nupkg.sha512",

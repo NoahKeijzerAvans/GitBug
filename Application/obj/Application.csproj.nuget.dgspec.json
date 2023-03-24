@@ -106,6 +106,10 @@
             "ConsoleTables": {
               "target": "Package",
               "version": "[2.4.2, )"
+            },
+            "LibGit2Sharp": {
+              "target": "Package",
+              "version": "[0.26.2, )"
             }
           },
           "imports": [

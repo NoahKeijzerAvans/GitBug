@@ -85,6 +85,10 @@ public class CommandControl
                 SetCommand(new GitAddTaskCommand(Project));
                 CommandWasCalled(null);
                 break;
+            case { } when command.Contains("git clone"):
+                SetCommand(new GitCloneCommand(null!));
+                CommandWasCalled(null);
+                break;
             default:
                 Console.WriteLine("Valid operations: ");
                 Console.WriteLine("git commit -m");
