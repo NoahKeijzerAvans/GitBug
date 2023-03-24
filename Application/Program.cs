@@ -23,6 +23,7 @@ var bug = new Bug
     Summary = "Cursor does not stay where it needs to be",
     RequestedBy = project.Contributors.First(c => c.FullName.Equals("Marcel de Groot"))
 };
+
 bug.State = new InProgressState(bug);
 var problem = new Problem
 {
