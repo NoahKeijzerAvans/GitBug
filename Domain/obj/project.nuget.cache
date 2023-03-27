@@ -1,8 +1,42 @@
 {
   "version": 2,
-  "dgSpecHash": "r2JGFQJUhIxcZarlS5brJ3REd3wRG02g9vQyboUY/QP77VK6t8Un28x4F2b/7ts/qOspBH2kZ9xvaYHIYCm89Q==",
+  "dgSpecHash": "7KC+DT7nvTf6g4Kuq3Oqn1Vn6QWrL3OFmBO65DqPxZF1w3989ezWrc5D0lYyOJsU891oRmAORs1451vaYAxhUQ==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\noahd\\.nuget\\packages\\ecocore\\7.0.0.14638\\ecocore.7.0.0.14638.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.5\\microsoft.aspnetcore.authorization.6.0.5.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.5\\microsoft.aspnetcore.components.6.0.5.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.5\\microsoft.aspnetcore.components.analyzers.6.0.5.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.5\\microsoft.aspnetcore.components.forms.6.0.5.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.5\\microsoft.aspnetcore.components.web.6.0.5.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.5\\microsoft.aspnetcore.metadata.6.0.5.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\microsoft.jsinterop\\6.0.5\\microsoft.jsinterop.6.0.5.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\syncfusion.blazor.core\\21.1.35\\syncfusion.blazor.core.21.1.35.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\syncfusion.blazor.data\\21.1.35\\syncfusion.blazor.data.21.1.35.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\syncfusion.blazor.progressbar\\21.1.35\\syncfusion.blazor.progressbar.21.1.35.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\syncfusion.licensing\\21.1.35\\syncfusion.licensing.21.1.35.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\noahd\\.nuget\\packages\\xamarin.forms\\5.0.0.2578\\xamarin.forms.5.0.0.2578.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EcoCore 7.0.0.14638' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "EcoCore",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
