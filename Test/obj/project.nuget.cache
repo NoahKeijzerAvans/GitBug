@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "NWsyJX3GdSmIFGM2oGOt++J695sSTRqc1KIFS40o+HNnBkzLecKsVCmS69TktwFGTB5TfJtvTZZSG56N+UtBLw==",
+  "dgSpecHash": "arA/I2HSK/Km3ygYyNDJTdhxNpU74HoYzbZyo2s5qLdFSBSFZLDePOgTTEsUBymeNLVnJMVt9fp5tZu/Z2KZMw==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Test\\Test.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512",
