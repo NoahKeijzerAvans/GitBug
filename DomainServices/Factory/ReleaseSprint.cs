@@ -8,5 +8,9 @@ namespace DomainServices.Factory
 {
     public class ReleaseSprint: ISprint
     {
+        public void print()
+        {
+            Console.WriteLine("test");
+        }
     }
 }
