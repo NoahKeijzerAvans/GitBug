@@ -12,8 +12,7 @@ public class ToDoState : IIssueState
     }
     public void SetIssueToDo()
     {
-        Console.WriteLine("This item is already on state Todo.");
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is already on state Todo.");
     }
 
     public void SetIssueToInProgress()
@@ -23,16 +22,21 @@ public class ToDoState : IIssueState
 
     public void SetIssueToDone()
     {
-        Context.State = new DoneState(Context);
+        throw new InvalidOperationException("Place the item in state In Progress first");
     }
 
-    public void SetIssueToReview()
+    public void SetIssueToReadyForTesting()
     {
-        Context.State = new ReviewState(Context);
+        throw new InvalidOperationException("Place the item in state In Progress first");
     }
 
     public void SetIssueToCanceled()
     {
-        Context.State = new CanceledState(Context);
+        throw new InvalidOperationException("Place the item in state In Progress first");
+    }
+
+    public void SetIssueToTested()
+    {
+        throw new InvalidOperationException("Place the item in state In Progress first");
     }
 }

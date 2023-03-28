@@ -25,26 +25,6 @@
           }
         }
       },
-      "EcoCore/7.0.0.14638": {
-        "runtime": {
-          "lib/net40/Eco.Handles.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.0.0.14638"
-          },
-          "lib/net40/Eco.Interfaces.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.0.0.14638"
-          },
-          "lib/net40/Eco.LinqExtender.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.0.0.14638"
-          },
-          "lib/net40/MDriven.Net.Http.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.0.0.14638"
-          }
-        }
-      },
       "LibGit2Sharp/0.26.2": {
         "dependencies": {
           "LibGit2Sharp.NativeBinaries": "2.0.306"
@@ -384,7 +364,6 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
-          "EcoCore": "7.0.0.14638",
           "Syncfusion.Blazor.ProgressBar": "21.1.35",
           "Xamarin.Forms": "5.0.0.2578"
         },
@@ -416,13 +395,6 @@
       "sha512": "sha512-0SRFOWYCgFQ0RfAMof2DsGEJHI2YKquCA4X26kKyuG+MG+/2R3NRgRVEqXDMU7eVP69MGDzb1eg4i3/APlIfQg==",
       "path": "consoletables/2.4.2",
       "hashPath": "consoletables.2.4.2.nupkg.sha512"
-    },
-    "EcoCore/7.0.0.14638": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-xLJVqwgo7QpW/ukVM0WU3HFpod78I4Jub44RSOUr5B4rAwOSG/J173RtvHdY8BGmfwHwhwZFYGooE3Jw1yZNbg==",
-      "path": "ecocore/7.0.0.14638",
-      "hashPath": "ecocore.7.0.0.14638.nupkg.sha512"
     },
     "LibGit2Sharp/0.26.2": {
       "type": "package",

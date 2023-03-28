@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/EN0MKIOR5vrAqhIKYE2TW06+L8Y3yz8e+jYuZ0yfkcMvnEUb3grwtFiCmuIr2pB9a/LYQw238OJGrCqjUBhTg==",
+  "dgSpecHash": "NWsyJX3GdSmIFGM2oGOt++J695sSTRqc1KIFS40o+HNnBkzLecKsVCmS69TktwFGTB5TfJtvTZZSG56N+UtBLw==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
-    "C:\\Users\\noahd\\.nuget\\packages\\ecocore\\7.0.0.14638\\ecocore.7.0.0.14638.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.5\\microsoft.aspnetcore.authorization.6.0.5.nupkg.sha512",
@@ -122,16 +121,5 @@
     "C:\\Users\\noahd\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'EcoCore 7.0.0.14638' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "EcoCore",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

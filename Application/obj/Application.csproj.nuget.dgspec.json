@@ -168,10 +168,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "EcoCore": {
-              "target": "Package",
-              "version": "[7.0.0.14638, )"
-            },
             "Syncfusion.Blazor.ProgressBar": {
               "target": "Package",
               "version": "[21.1.35, )"

@@ -13,10 +13,6 @@ C:\source\SOFA3\Domain\obj\Debug\net6.0\refint\Domain.dll
 C:\source\SOFA3\Domain\obj\Debug\net6.0\Domain.pdb
 C:\source\SOFA3\Domain\obj\Debug\net6.0\Domain.genruntimeconfig.cache
 C:\source\SOFA3\Domain\obj\Debug\net6.0\ref\Domain.dll
-C:\source\SOFA3\Domain\bin\Debug\net6.0\Eco.Handles.dll
-C:\source\SOFA3\Domain\bin\Debug\net6.0\Eco.Interfaces.dll
-C:\source\SOFA3\Domain\bin\Debug\net6.0\Eco.LinqExtender.dll
-C:\source\SOFA3\Domain\bin\Debug\net6.0\MDriven.Net.Http.dll
 C:\source\SOFA3\Domain\obj\Debug\net6.0\Domain.csproj.CopyComplete
 C:\source\SOFA3\Domain\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
 C:\source\SOFA3\Domain\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll

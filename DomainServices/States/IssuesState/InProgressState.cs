@@ -12,7 +12,7 @@ public class InProgressState : IIssueState
     }
     public void SetIssueToDo()
     {
-        Context.State = new ToDoState(Context);
+        throw new InvalidOperationException("Wrong direction of the flow.");
     }
 
     public void SetIssueToInProgress()
@@ -23,16 +23,21 @@ public class InProgressState : IIssueState
 
     public void SetIssueToDone()
     {
-        Context.State = new DoneState(Context);
-    }
-
-    public void SetIssueToReview()
-    {
-        Context.State = new ReviewState(Context);
+        throw new InvalidOperationException("Place the item in state Ready for Testing first");
     }
 
     public void SetIssueToCanceled()
     {
         Context.State = new CanceledState(Context);
+    }
+
+    public void SetIssueToReadyForTesting()
+    {
+        throw new InvalidOperationException("Place the item in state Ready for Testing first");
+    }
+
+    public void SetIssueToTested()
+    {
+        throw new InvalidOperationException("Place the item in state Ready for Testing first");
     }
 }

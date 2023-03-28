@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SWU2UPqsCH0vGdUzud5710HMg7TYhu5Y1gBXZ8dC/VaOv1tes0NkdrGeNSBm+pFvAyer7Y27JhzvCY/C8Ak0fQ==",
+  "dgSpecHash": "fn8qDDwwgcWsQc7dlzb16pONAyS+lwpsVXJZV6IOupj/8eUkYJCJU7uVTYgHzifFg+QIllpcYwpTlPm1hSgK2w==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
-    "C:\\Users\\noahd\\.nuget\\packages\\ecocore\\7.0.0.14638\\ecocore.7.0.0.14638.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.5\\microsoft.aspnetcore.authorization.6.0.5.nupkg.sha512",
@@ -39,16 +38,5 @@
     "C:\\Users\\noahd\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\xamarin.forms\\5.0.0.2578\\xamarin.forms.5.0.0.2578.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'EcoCore 7.0.0.14638' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "EcoCore",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -13,7 +13,7 @@ public class ScrumBoard
         Issues = issues;
     }
 
-    public void Draw()
+    public void DrawScumBoard()
     {
         Console.WriteLine();
         Console.WriteLine($"{Issues.Name}");
@@ -23,7 +23,7 @@ public class ScrumBoard
         Console.WriteLine($"Total Story Points: {Issues.TotalStoryPoints}");
         Console.WriteLine($"Total Completed Story Points: {Issues.TotalCompletedStoryPoints}");
         Console.WriteLine();
-        var table = new ConsoleTable("To Do", "In Progress", "To Review", "Done", "Canceled");
+        var table = new ConsoleTable("To Do", "In Progress", "Ready to Test","Tested", "Done", "Canceled");
         foreach (var issue in Issues.Issues)
         {
             switch (issue.State)
@@ -34,8 +34,11 @@ public class ScrumBoard
                 case InProgressState:
                     AddRowInProgress(table, issue);
                     break;
-                case ReviewState:
-                    AddRowToReview(table, issue);
+                case ReadyToTestState:
+                    AddRowToReadyToTest(table, issue);
+                    break;
+                case TestedState:
+                    AddRowToTested(table, issue);
                     break;
                 case DoneState:
                     AddRowDone(table, issue);
@@ -51,26 +54,35 @@ public class ScrumBoard
 
     private static void AddRowTodo(ConsoleTable table, Issue issue)
     {
-        table.AddRow(issue.Name, "", "", "", "");
+        table.AddRow(issue.Name, "", "", "", "", "");
     }
-
+    private static void AddRowToReadyToTest(ConsoleTable table, Issue issue)
+    {
+        table.AddRow("", "", issue.Name , "", "", "");
+    }
+    private static void AddRowToTested(ConsoleTable table, Issue issue)
+    {
+        table.AddRow(issue.Name, "", "", "", "", "");
+    }
     private static void AddRowCanceled(ConsoleTable table, Issue issue)
     {
-        table.AddRow("", "", "", "", issue.Name);
+        table.AddRow("", "", "", "", "", issue.Name);
     }
 
     private static void AddRowDone(ConsoleTable table, Issue issue)
     {
-        table.AddRow("", "", "", issue.Name, "");
-    }
-
-    private static void AddRowToReview(ConsoleTable table, Issue issue)
-    {
-        table.AddRow("", "", issue.Name, "", "");
+        table.AddRow("", "", "", issue.Name, "", "");
     }
 
     private static void AddRowInProgress(ConsoleTable table, Issue issue)
     {
-        table.AddRow("", issue.Name, "", "", "");
+        table.AddRow("", issue.Name, "", "", "", "");
+    }
+
+    public void DrawChart()
+    {
+        ChartControl chart = new ChartControl();
+        chart.Width = 600;
+        chart.Height = 600;
     }
 }

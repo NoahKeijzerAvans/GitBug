@@ -40,10 +40,6 @@ C:\source\SOFA3\Application\bin\Debug\net6.0\runtimes\win-x64\native\git2-106a5f
 C:\source\SOFA3\Application\bin\Debug\net6.0\runtimes\win-x64\native\git2-106a5f2.pdb
 C:\source\SOFA3\Application\bin\Debug\net6.0\runtimes\win-x86\native\git2-106a5f2.dll
 C:\source\SOFA3\Application\bin\Debug\net6.0\runtimes\win-x86\native\git2-106a5f2.pdb
-C:\source\SOFA3\Application\bin\Debug\net6.0\Eco.Handles.dll
-C:\source\SOFA3\Application\bin\Debug\net6.0\Eco.Interfaces.dll
-C:\source\SOFA3\Application\bin\Debug\net6.0\Eco.LinqExtender.dll
-C:\source\SOFA3\Application\bin\Debug\net6.0\MDriven.Net.Http.dll
 C:\source\SOFA3\Application\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
 C:\source\SOFA3\Application\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
 C:\source\SOFA3\Application\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
