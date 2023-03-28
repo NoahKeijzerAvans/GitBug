@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Br4v+IvJ3m2h0jpHDilywvCOkLmtCim8Iw9IxluVH5mNZ+swxqHtoO3HS0D0ALcSYUUQbWbRV4x4FpJQ7TP4YA==",
+  "dgSpecHash": "xgbDDFb7tkDJ5ejaRfBD7SdKiMoTib06/MvBrJ4IJyfmI6SkjL3vdYkq/ljOOc1E6APTVvgVjzAjkSWc2zZrhA==",
   "success": true,
-  "projectFilePath": "C:\\source\\SOFA3\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\tdela\\source\\repos\\GitBug\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

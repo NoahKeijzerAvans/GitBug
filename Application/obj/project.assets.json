@@ -8,10 +8,14 @@
           "System.Reflection.TypeExtensions": "4.3.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/ConsoleTables.dll": {}
+          "lib/netcoreapp3.1/ConsoleTables.dll": {
+            "related": ".pdb"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/ConsoleTables.dll": {}
+          "lib/netcoreapp3.1/ConsoleTables.dll": {
+            "related": ".pdb"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -42,7 +46,9 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.IO.dll": {}
+          "ref/netstandard1.5/System.IO.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Reflection/4.3.0": {
@@ -55,7 +61,9 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.Reflection.dll": {}
+          "ref/netstandard1.5/System.Reflection.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Reflection.Primitives/4.3.0": {
@@ -66,7 +74,9 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/System.Reflection.Primitives.dll": {}
+          "ref/netstandard1.0/System.Reflection.Primitives.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Reflection.TypeExtensions/4.3.0": {
@@ -76,7 +86,9 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
+          "ref/netstandard1.5/System.Reflection.TypeExtensions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
           "lib/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
@@ -89,7 +101,9 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.Runtime.dll": {}
+          "ref/netstandard1.5/System.Runtime.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Text.Encoding/4.3.0": {
@@ -100,7 +114,9 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Text.Encoding.dll": {}
+          "ref/netstandard1.3/System.Text.Encoding.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Threading.Tasks/4.3.0": {
@@ -111,7 +127,9 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Threading.Tasks.dll": {}
+          "ref/netstandard1.3/System.Threading.Tasks.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Domain/1.0.0": {
@@ -706,19 +724,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\noahd\\.nuget\\packages\\": {}
+    "C:\\Users\\tdela\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\source\\SOFA3\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\tdela\\source\\repos\\GitBug\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\source\\SOFA3\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\noahd\\.nuget\\packages\\",
-      "outputPath": "C:\\source\\SOFA3\\Application\\obj\\",
+      "projectPath": "C:\\Users\\tdela\\source\\repos\\GitBug\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\tdela\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tdela\\source\\repos\\GitBug\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\noahd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tdela\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -732,8 +750,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj": {
-              "projectPath": "C:\\source\\SOFA3\\DomainServices\\DomainServices.csproj"
+            "C:\\Users\\tdela\\source\\repos\\GitBug\\DomainServices\\DomainServices.csproj": {
+              "projectPath": "C:\\Users\\tdela\\source\\repos\\GitBug\\DomainServices\\DomainServices.csproj"
             }
           }
         }
@@ -763,7 +781,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
