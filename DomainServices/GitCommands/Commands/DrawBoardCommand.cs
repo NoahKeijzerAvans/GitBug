@@ -13,6 +13,6 @@ public class DrawBoardCommand: GitCommand
 
     public override void Excecute(dynamic? param)
     {
-        _board.Draw();
+        _board.DrawScumBoard();
     }
 }
