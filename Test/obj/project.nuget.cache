@@ -1,13 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "NWsyJX3GdSmIFGM2oGOt++J695sSTRqc1KIFS40o+HNnBkzLecKsVCmS69TktwFGTB5TfJtvTZZSG56N+UtBLw==",
+  "dgSpecHash": "zFS2Mo/TfsWmuyIBx8fm6yeNPy6QJeshdmVk8EZGWAf7gwPZGKz4OGa6lf5a9h54lG7UgzaaQeCI4Rbw+oMOOw==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
-    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
-    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.5\\microsoft.aspnetcore.authorization.6.0.5.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.5\\microsoft.aspnetcore.components.6.0.5.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.5\\microsoft.aspnetcore.components.analyzers.6.0.5.nupkg.sha512",

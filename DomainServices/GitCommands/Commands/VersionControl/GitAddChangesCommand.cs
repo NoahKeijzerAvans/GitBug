@@ -2,7 +2,7 @@
 using DomainServices.Context.VersionControl;
 using LibGit2Sharp;
 
-namespace DomainServices.GitCommands.Commands;
+namespace DomainServices.GitCommands.Commands.VersionControl;
 
 public class GitAddChangesCommand : GitCommand
 {

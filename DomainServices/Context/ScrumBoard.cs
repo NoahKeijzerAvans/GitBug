@@ -27,6 +27,7 @@ public class ScrumBoard
         Console.WriteLine($"Total Completed Story Points: {Issues.TotalCompletedStoryPoints}");
         Console.WriteLine();
         var table = new ConsoleTable("To Do", "In Progress", "Ready to Test", "Tested", "Done", "Canceled");
+
         foreach (var issue in Issues.Issues)
         {
             switch (issue.State)

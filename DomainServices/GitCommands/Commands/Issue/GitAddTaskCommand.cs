@@ -3,9 +3,9 @@ using Domain.Models;
 using DomainServices.Context;
 using DomainServices.Context.Task;
 
-namespace DomainServices.GitCommands.Commands;
+namespace DomainServices.GitCommands.Commands.Issue;
 
-public class GitAddTaskCommand: GitCommand
+public class GitAddTaskCommand : GitCommand
 {
     private int CursorTop { get; set; }
     private List<KeyValuePair<Person, bool>>? OptionsPeople { get; set; }
@@ -24,14 +24,14 @@ public class GitAddTaskCommand: GitCommand
             new (typeof(Problem), false),
             new (typeof(Story), false)
         };
-        
+
         foreach (var contributor in Context.Contributors)
         {
             OptionsPeople?.Add(!OptionsPeople!.Any()
                 ? new KeyValuePair<Person, bool>(contributor, true)
                 : new KeyValuePair<Person, bool>(contributor, false));
         }
-        
+
         OptionsPriority = new List<KeyValuePair<Priority, bool>>
         {
             new(Priority.High, true),
@@ -47,7 +47,7 @@ public class GitAddTaskCommand: GitCommand
         Console.WriteLine("Select the type of task that needs to be created by pressing Enter key.");
         SelectTypeTask();
     }
-    
+
     private Person SelectPerson()
     {
         EnterPressed = false;
@@ -57,15 +57,15 @@ public class GitAddTaskCommand: GitCommand
             {
                 Console.WriteLine(option.Value ? $"[x] {option.Key.FullName} " : $"[] {option.Key.FullName} ");
             }
-            CursorTop =+ Console.CursorTop - OptionsPeople.Count;
+            CursorTop = +Console.CursorTop - OptionsPeople.Count;
             OptionsPeople = ReadKeyPressed(CursorTop, OptionsPeople);
         }
 
-        CursorTop =+ Console.CursorTop + OptionsPeople!.Count;
+        CursorTop = +Console.CursorTop + OptionsPeople!.Count;
         Console.SetCursorPosition(0, CursorTop);
         return OptionsPeople!.FirstOrDefault(p => p.Value).Key;
     }
-    
+
     private Priority SelectPriority()
     {
         EnterPressed = false;
@@ -75,11 +75,11 @@ public class GitAddTaskCommand: GitCommand
             {
                 Console.WriteLine(option.Value ? $"[x] {option.Key} " : $"[] {option.Key} ");
             }
-            CursorTop =+ Console.CursorTop - OptionsPriority.Count;
+            CursorTop = +Console.CursorTop - OptionsPriority.Count;
             OptionsPriority = ReadKeyPressed(CursorTop, OptionsPriority);
         }
 
-        CursorTop =+ Console.CursorTop + OptionsPriority.Count;
+        CursorTop = +Console.CursorTop + OptionsPriority.Count;
         Console.SetCursorPosition(0, CursorTop);
         return OptionsPriority.FirstOrDefault(p => p.Value).Key;
     }
@@ -93,10 +93,10 @@ public class GitAddTaskCommand: GitCommand
                 Console.WriteLine(option.Value ? $"[x] {option.Key.Name} " : $"[] {option.Key.Name} ");
             }
 
-            CursorTop =+ Console.CursorTop - OptionsTasks.Count;
+            CursorTop = +Console.CursorTop - OptionsTasks.Count;
             OptionsTasks = ReadKeyPressed(CursorTop, OptionsTasks);
         }
-        CursorTop =+ Console.CursorTop + OptionsTasks.Count;
+        CursorTop = +Console.CursorTop + OptionsTasks.Count;
         Console.SetCursorPosition(0, CursorTop);
     }
 
@@ -126,12 +126,12 @@ public class GitAddTaskCommand: GitCommand
     {
         if (type == typeof(Bug))
         {
-            var bug = (Bug) Activator.CreateInstance(type)!;
+            var bug = (Bug)Activator.CreateInstance(type)!;
             return EnterExtraInformationForBug(bug);
         }
         if (type == typeof(Change))
         {
-            var change =  (Change) Activator.CreateInstance(type)!;
+            var change = (Change)Activator.CreateInstance(type)!;
             return EnterExtraInformationForChange(change);
         }
 
@@ -142,8 +142,8 @@ public class GitAddTaskCommand: GitCommand
         }
         if (type == typeof(Incident))
         {
-           var incident = (Incident) Activator.CreateInstance(type)!;
-           return EnterExtraInformationForIncident(incident);
+            var incident = (Incident)Activator.CreateInstance(type)!;
+            return EnterExtraInformationForIncident(incident);
         }
 
         if (type == typeof(Problem))
@@ -153,7 +153,7 @@ public class GitAddTaskCommand: GitCommand
         }
         if (type == typeof(Story))
         {
-            var story = (Story) Activator.CreateInstance(type)!;
+            var story = (Story)Activator.CreateInstance(type)!;
             return EnterExtraInformationForStory(story);
         }
         return null;
@@ -207,21 +207,21 @@ public class GitAddTaskCommand: GitCommand
         bug.RequestedBy = SelectPerson();
         return bug;
     }
-    
+
     private Issue EnterExtraInformationForEpic(Epic epic)
     {
         Console.WriteLine("Provide a summary of the epic: ");
         epic.Summary = Console.Read().ToString();
         return epic;
     }
-    private List<KeyValuePair<T, bool>> ReadKeyPressed<T>(int cursorTop, List<KeyValuePair<T,bool>> optionsList)
+    private List<KeyValuePair<T, bool>> ReadKeyPressed<T>(int cursorTop, List<KeyValuePair<T, bool>> optionsList)
     {
         var key = Console.ReadKey();
 
         var optionSelected = optionsList.FirstOrDefault(o => o.Value);
         var indexSelected = optionsList.IndexOf(optionSelected);
         Console.SetCursorPosition(0, cursorTop);
-        
+
         switch (key.Key)
         {
             case ConsoleKey.DownArrow:
@@ -239,26 +239,26 @@ public class GitAddTaskCommand: GitCommand
                 EnterPressed = false;
                 break;
             case ConsoleKey.UpArrow:
-            {
-                if (indexSelected - 1 < 0)
                 {
-                    optionsList[indexSelected] = new KeyValuePair<T, bool>(optionSelected.Key, false);
-                    indexSelected = optionsList.Count -1;
-                    optionsList[indexSelected] = new KeyValuePair<T, bool>(optionsList[indexSelected].Key, true);
+                    if (indexSelected - 1 < 0)
+                    {
+                        optionsList[indexSelected] = new KeyValuePair<T, bool>(optionSelected.Key, false);
+                        indexSelected = optionsList.Count - 1;
+                        optionsList[indexSelected] = new KeyValuePair<T, bool>(optionsList[indexSelected].Key, true);
+                    }
+                    else
+                    {
+                        optionsList[indexSelected] = new KeyValuePair<T, bool>(optionSelected.Key, false);
+                        optionsList[indexSelected - 1] = new KeyValuePair<T, bool>(optionsList[indexSelected - 1].Key, true);
+                    }
+                    EnterPressed = false;
+                    break;
                 }
-                else
-                {
-                    optionsList[indexSelected] = new KeyValuePair<T, bool>(optionSelected.Key, false);
-                    optionsList[indexSelected - 1] = new KeyValuePair<T, bool>(optionsList[indexSelected - 1].Key, true);
-                }
-                EnterPressed = false;
-                break;
-            }
             case ConsoleKey.Enter:
                 EnterPressed = true;
-                if(typeof(T) == typeof(Person) || typeof(T) == typeof(Priority))
+                if (typeof(T) == typeof(Person) || typeof(T) == typeof(Priority))
                     break;
-                if(typeof(T) == typeof(Type))
+                if (typeof(T) == typeof(Type))
                     CreateIssue();
                 break;
             default:

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace DomainServices.GitCommands.Commands
+namespace DomainServices.GitCommands.Commands.VersionControl
 {
     public class GitCloneCommand : GitCommand
     {
