@@ -54,13 +54,18 @@ public abstract class Issue : IIssueStateable
         State!.SetIssueToDone();
     }
 
-    public void SetIssueToReview()
-    {
-        State!.SetIssueToReview();
-    }
-
     public void SetIssueToCanceled()
     {
         State!.SetIssueToCanceled();
+    }
+
+    public void SetIssueToTested()
+    {
+        State!.SetIssueToTested();
+    }
+
+    public void SetIssueToReadyForTesting()
+    {
+        State!.SetIssueToReadyForTesting();
     }
 }

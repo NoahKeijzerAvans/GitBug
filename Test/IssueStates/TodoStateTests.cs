@@ -44,7 +44,7 @@ namespace Test.IssueStates
             var sut = _issue.State;
 
             // Assert
-            Assert.IsType<ReviewState>(sut);
+            Assert.IsType<ReadyToTestState>(sut);
         }
 
         [Fact]

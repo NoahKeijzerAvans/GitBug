@@ -26,14 +26,19 @@ public class DoneState : IIssueState
         throw new InvalidOperationException();
     }
 
-    public void SetIssueToReview()
-    {
-        throw new InvalidOperationException();
-    }
-
     public void SetIssueToCanceled()
     {
         Console.WriteLine("This item is already finalized");
         throw new InvalidOperationException();
+    }
+
+    public void SetIssueToReadyForTesting()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetIssueToTested()
+    {
+        throw new NotImplementedException();
     }
 }

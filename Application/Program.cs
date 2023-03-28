@@ -2,7 +2,9 @@
 
 using Domain.Models;
 using DomainServices.Context;
+using DomainServices.Context.Pipeline;
 using DomainServices.Context.Task;
+using DomainServices.Pipeline.Steps;
 using DomainServices.States.IssuesState;
 using DomainServices.Utils;
 
@@ -37,4 +39,12 @@ project.Issues.Add(bug);
 project.Issues.Add(problem);
 
 var control = new CommandControl(project);
-control.Listen();
+//var pipeline = new Pipeline();
+//pipeline.Attach(new PackageStep());
+//pipeline.Attach(new BuildStep());
+//pipeline.Attach(new UtilityStep());
+//pipeline.Attach(new AnalyseStep());
+//pipeline.Attach(new TestStep());
+//pipeline.Attach(new DeployStep());
+//pipeline.Excecute();
+ control.Listen();

@@ -11,7 +11,7 @@ public sealed class ReviewStateTests
     {
         _issue = new Story("New Story", "Example", 5, new Person(), Priority.High, String.Empty,
             "when the task is finished the task is finished", new List<Issue>());
-        _issue.State = new ReviewState(_issue);
+        _issue.State = new ReadyToTestState(_issue);
 
     }
 
@@ -19,7 +19,7 @@ public sealed class ReviewStateTests
     {
         _issue = new Story("New Story", "Example", 5, new Person(), Priority.High, String.Empty,
             "when the task is finished the task is finished", new List<Issue>());
-        _issue.State = new ReviewState(_issue);
+        _issue.State = new ReadyToTestState(_issue);
     }
     [Fact]
     public void Should_Throw_Invalid_Operation_Exception_When_Set_To_Review_Is_Called()
