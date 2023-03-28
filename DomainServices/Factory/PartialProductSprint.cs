@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Factory
 {
-    public class PartialProductSprint: ISprint
+    public class PartialProductSprint : ISprint
     {
+        public void print()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

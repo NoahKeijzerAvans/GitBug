@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Observer
 {
-    public class Subscriber
+    public abstract class Subscriber
     {
         private List<IObserver> observers= new();
 
