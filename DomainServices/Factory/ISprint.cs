@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Factory
 {
-    public interface ISprint
+    public abstract class Sprint: Subscriber
     {
-        public void print();
+        public void print()
+        {
+            Console.WriteLine();
+        }
     }
 }

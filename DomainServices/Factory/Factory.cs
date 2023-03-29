@@ -8,7 +8,7 @@ namespace DomainServices.Factory
 {
     public abstract class Factory
     {
-        public abstract ISprint createSprint();
+        public abstract Sprint CreateSprint();
         
     }
 }

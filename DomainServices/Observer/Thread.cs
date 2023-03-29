@@ -8,5 +8,11 @@ namespace DomainServices.Observer
 {
     public class Thread: Subscriber
     {
+       
+
+        public void addComment(string comment)
+        {
+
+        }
     }
 }

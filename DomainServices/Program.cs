@@ -3,16 +3,17 @@ using DomainServices.Observer;
 using DomainServices.Factory;
 
 Subscriber subscriber= new DomainServices.Observer.Thread();
-MailNotification mail = new MailNotification();
-MailNotification mail2 = new MailNotification();
+IObserver mail = new MailNotification();
 IObserver slak = new SlakNotification();
+
+var thread = new DomainServices.Observer.Thread();
+thread.subscribe(mail);
+
 
 subscriber.subscribe(mail);
 subscriber.subscribe(slak);
-subscriber.unsubscribe(mail2);
-
 subscriber.notify("Kaas");
 
 Factory factory = new ReleaseSprintFactory();
-ISprint kaas = factory.createSprint();
+Sprint kaas = factory.CreateSprint();
 kaas.print();
