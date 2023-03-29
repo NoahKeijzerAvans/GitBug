@@ -8,6 +8,6 @@ namespace DomainServices.Observer
 {
     public interface IObserver
     {
-        public void update(string data);
+        public void Update(object? data);
     }
 }

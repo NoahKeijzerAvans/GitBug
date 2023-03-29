@@ -1,11 +1,11 @@
 ﻿using Domain.Models;
-using DomainServices.Interfaces.Pipeline;
+using DomainServices.Observer;
 
 namespace DomainServices.Pipeline.Steps;
 
-public class UtilityStep : IPipelineStep
+public class UtilityStep : PipelineStep, IObserver
 {
-    public void Excecute()
+    public new void Update(object? arg)
     {
         Console.WriteLine("Excecuting Utility step, please wait.");
         ConsoleSpinner.Draw();

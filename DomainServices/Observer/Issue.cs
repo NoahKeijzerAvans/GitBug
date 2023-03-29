@@ -8,7 +8,7 @@ namespace DomainServices.Observer
 {
     public class Issue
     {
-        private Thread thread;
+        private readonly Thread Thread;
         public Thread addThread()
         {
             return new Thread();
@@ -16,10 +16,9 @@ namespace DomainServices.Observer
         public void addComment(string comment, string choiceOfNotification)
         {
             IObserver observer = new SlakNotification();
-            thread.subscribe(observer);
-            thread.addComment(comment);
-            thread.notify(comment);
-
+            Thread.Subscribe(observer);
+            Thread.addComment(comment);
+            Thread.Update(comment);
         }
     }
 }

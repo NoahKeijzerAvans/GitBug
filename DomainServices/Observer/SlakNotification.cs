@@ -9,9 +9,9 @@ namespace DomainServices.Observer
     public class SlakNotification : INotificationStrategy
 
     {
-        public void update(string data)
+        public void Update(object? data)
         {
-            Console.WriteLine(data+ "_SLAK");
+            Console.WriteLine(data!.ToString() + "_SLAK");
         }
     }
 }

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Observer
 {
-    public class Thread: Subscriber
+    public class Thread : Subscriber
     {
-       
-
         public void addComment(string comment)
         {
 

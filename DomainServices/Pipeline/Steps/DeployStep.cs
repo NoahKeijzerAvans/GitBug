@@ -1,11 +1,11 @@
 ﻿using Domain.Models;
-using DomainServices.Interfaces.Pipeline;
+using DomainServices.Observer;
 
 namespace DomainServices.Pipeline.Steps;
 
-public class DeployStep : IPipelineStep
+public class DeployStep : PipelineStep, IObserver
 {
-    public void Excecute()
+    public new void Update(object? arg)
     {
         Console.WriteLine("Excecuting Deploy step, please wait.");
         ConsoleSpinner.Draw();

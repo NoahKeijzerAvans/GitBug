@@ -2,8 +2,10 @@
 
 using Domain.Models;
 using DomainServices.Context;
-using DomainServices.Context.Pipeline;
+using DomainServices.Context.PipelineContext;
 using DomainServices.Context.Task;
+using DomainServices.Observer;
+using DomainServices.Pipeline;
 using DomainServices.Pipeline.Steps;
 using DomainServices.States.IssuesState;
 using DomainServices.Utils;
@@ -51,11 +53,25 @@ project.Issues.Add(story);
 var control = new CommandControl(project);
 var pipeline = new Pipeline();
 
-//pipeline.Attach(new PackageStep());
-//pipeline.Attach(new BuildStep());
-//pipeline.Attach(new UtilityStep());
-//pipeline.Attach(new AnalyseStep());
-//pipeline.Attach(new TestStep());
-// pipeline.Attach(new DeployStep());
-//pipeline.Excecute();
-control.Listen();
+pipeline.Subscribe(new PackageStep());
+pipeline.Subscribe(new BuildStep());
+pipeline.Subscribe(new UtilityStep());
+pipeline.Subscribe(new AnalyseStep());
+pipeline.Subscribe(new TestStep());
+pipeline.Subscribe(new DeployStep());
+
+var thread = new DomainServices.Observer.Thread();
+
+IObserver mail = new MailNotification();
+IObserver slak = new SlakNotification();
+
+thread.Subscribe(mail);
+thread.Subscribe(mail);
+
+pipeline.Update(null);
+
+
+
+
+
+// control.Listen();

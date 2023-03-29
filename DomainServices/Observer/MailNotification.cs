@@ -9,10 +9,10 @@ namespace DomainServices.Observer
 {
     public class MailNotification: INotificationStrategy
     {
-        public void update(String data)
+        public void Update(object? data)
         {
             //send the notification
-            Console.WriteLine("Mail send: "+ data);
+            Console.WriteLine("Mail send: "+ data!.ToString());
         }
     }
 }

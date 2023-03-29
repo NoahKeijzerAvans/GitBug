@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Factory
 {
-    public abstract class Sprint: Subscriber
+    public abstract class Sprint : Subscriber
     {
-        public void print()
+        public void Print()
         {
             Console.WriteLine();
         }

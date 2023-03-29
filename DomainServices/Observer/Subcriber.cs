@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainServices.Context.Task;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,26 +9,26 @@ namespace DomainServices.Observer
 {
     public abstract class Subscriber
     {
-        private List<IObserver> observers= new();
+        private List<IObserver> Observers= new();
 
-        public void subscribe(IObserver observer)
+        public void Subscribe(IObserver observer)
         {
-            if (!observers.Contains(observer))
+            if (!Observers.Contains(observer))
             {
-                observers.Add(observer);
+                Observers.Add(observer);
             }
            
         }
-        public void unsubscribe(IObserver observer)
+        public void Unsubscribe(IObserver observer)
         {
-            observers.Remove(observer);
+            Observers.Remove(observer);
         }
-        public void notify(String message)
+        public void Update(object? param)
         {
-            foreach(IObserver observer in observers){
-                observer.update(message);
+            foreach (IObserver observer in Observers)
+            {
+                observer!.Update(param);
             }
-        }
-
+        }      
     }
 }
