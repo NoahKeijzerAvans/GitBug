@@ -27,14 +27,18 @@ public class CanceledState : IIssueState
         throw new InvalidOperationException();
     }
 
-    public void SetIssueToReview()
-    {
-        throw new InvalidOperationException();
-    }
-
     public void SetIssueToCanceled()
     {
         Console.WriteLine("This item is already on state Canceled");
         throw new InvalidOperationException();
+    }
+    public void SetIssueToTested()
+    {
+        throw new InvalidOperationException();
+    }
+
+    public void SetIssueToReadyForTesting()
+    {
+        throw new NotImplementedException();
     }
 }
