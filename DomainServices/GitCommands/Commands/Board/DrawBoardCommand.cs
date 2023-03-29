@@ -1,7 +1,7 @@
 ﻿using DomainServices.Context;
 using DomainServices.Utils;
 
-namespace DomainServices.GitCommands.Commands.ScrumBoard;
+namespace DomainServices.GitCommands.Commands.Board;
 
 public class DrawBoardCommand : GitCommand
 {

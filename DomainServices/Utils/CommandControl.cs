@@ -2,6 +2,9 @@
 using DomainServices.Context.VersionControl;
 using DomainServices.GitCommands;
 using DomainServices.GitCommands.Commands;
+using DomainServices.GitCommands.Commands.Board;
+using DomainServices.GitCommands.Commands.ScrumTasks;
+using DomainServices.GitCommands.Commands.VersionControl;
 
 namespace DomainServices.Utils;
 

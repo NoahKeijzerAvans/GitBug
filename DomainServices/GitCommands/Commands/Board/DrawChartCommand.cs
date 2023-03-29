@@ -1,6 +1,6 @@
 ﻿using DomainServices.Context;
 
-namespace DomainServices.GitCommands.Commands.ScrumBoard
+namespace DomainServices.GitCommands.Commands.Board
 {
     public class DrawChartCommand : GitCommand
     {
@@ -12,7 +12,7 @@ namespace DomainServices.GitCommands.Commands.ScrumBoard
 
         public override void Excecute(dynamic? param)
         {
-            _board.DrawChart();
+            _board.EffortPerDeveloper();
         }
     }
 }

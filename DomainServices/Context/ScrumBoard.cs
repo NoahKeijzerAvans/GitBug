@@ -1,9 +1,7 @@
 ﻿using ConsoleTables;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
-using LibGit2Sharp;
 using Syncfusion.Blazor.Data;
-using Xamarin.Forms.Shapes;
 
 namespace DomainServices.Context;
 
@@ -26,6 +24,7 @@ public class ScrumBoard
         Console.WriteLine($"Total Story Points: {Issues.TotalStoryPoints}");
         Console.WriteLine($"Total Completed Story Points: {Issues.TotalCompletedStoryPoints}");
         Console.WriteLine();
+
         var table = new ConsoleTable("To Do", "In Progress", "Ready to Test", "Tested", "Done", "Canceled");
 
         foreach (var issue in Issues.Issues)
@@ -99,6 +98,7 @@ public class ScrumBoard
                 burndownChart[i, j] = 0;
             }
         }
+
 
         // Step 3: Plot the story points on the array
         for (int i = 0; i < numDays; i++)
@@ -181,5 +181,21 @@ public class ScrumBoard
             Console.Write(i.ToString() + "\t");
         }
         Console.WriteLine();
+    }
+
+    public void EffortPerDeveloper()
+    {
+        var efforts = new Dictionary<string, double>();
+        var groupedIssues = Issues.Issues
+        .GroupBy(u => u.AssignedTo)
+        .Select(grp => grp.ToList())
+        .ToList();
+
+        var effort = 0.0;
+        groupedIssues.ForEach(i =>
+        {
+            i.ForEach(j => effort =+ j.StoryPoints);
+        });
+
     }
 }

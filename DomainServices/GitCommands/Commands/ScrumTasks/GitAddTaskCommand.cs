@@ -3,7 +3,7 @@ using Domain.Models;
 using DomainServices.Context;
 using DomainServices.Context.Task;
 
-namespace DomainServices.GitCommands.Commands.Issue;
+namespace DomainServices.GitCommands.Commands.ScrumTasks;
 
 public class GitAddTaskCommand : GitCommand
 {

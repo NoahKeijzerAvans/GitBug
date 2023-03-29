@@ -27,7 +27,7 @@ public sealed class ReviewStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _issue.SetIssueToReview();
+        void TestCode() => _issue.SetIssueToReadyForTesting();
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }
