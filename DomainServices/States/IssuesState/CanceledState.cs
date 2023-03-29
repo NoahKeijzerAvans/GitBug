@@ -14,31 +14,30 @@ public class CanceledState : IIssueState
 
     public void SetIssueToDo()
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is canceled");
     }
 
     public void SetIssueToInProgress()
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is canceled");
     }
 
     public void SetIssueToDone()
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is canceled");
     }
 
     public void SetIssueToCanceled()
     {
-        Console.WriteLine("This item is already on state Canceled");
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is already on state Canceled");
     }
     public void SetIssueToTested()
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is canceled");
     }
 
     public void SetIssueToReadyForTesting()
     {
-        throw new NotImplementedException();
+        throw new InvalidOperationException("This item is canceled");
     }
 }

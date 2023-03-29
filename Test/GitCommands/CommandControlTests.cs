@@ -1,5 +1,6 @@
 ﻿using DomainServices.Context;
 using DomainServices.GitCommands.Commands;
+using DomainServices.GitCommands.Commands.VersionControl;
 using DomainServices.Utils;
 
 namespace Test.GitCommands;

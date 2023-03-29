@@ -1,9 +1,9 @@
 ﻿using DomainServices.Context;
 using DomainServices.Utils;
 
-namespace DomainServices.GitCommands.Commands;
+namespace DomainServices.GitCommands.Commands.Board;
 
-public class DrawBoardCommand: GitCommand
+public class DrawBoardCommand : GitCommand
 {
     private readonly ScrumBoard _board;
     public DrawBoardCommand(Project context) : base(context)
@@ -13,6 +13,6 @@ public class DrawBoardCommand: GitCommand
 
     public override void Excecute(dynamic? param)
     {
-        _board.Draw();
+        _board.DrawScumBoard();
     }
 }

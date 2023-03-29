@@ -1,8 +1,8 @@
 ﻿using DomainServices.Context;
 
-namespace DomainServices.GitCommands.Commands;
+namespace DomainServices.GitCommands.Commands.VersionControl;
 
-public class GitClearCommand: GitCommand
+public class GitClearCommand : GitCommand
 {
     public GitClearCommand(Project context) : base(context)
     {

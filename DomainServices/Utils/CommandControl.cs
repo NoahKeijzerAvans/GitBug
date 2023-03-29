@@ -2,6 +2,9 @@
 using DomainServices.Context.VersionControl;
 using DomainServices.GitCommands;
 using DomainServices.GitCommands.Commands;
+using DomainServices.GitCommands.Commands.Board;
+using DomainServices.GitCommands.Commands.ScrumTasks;
+using DomainServices.GitCommands.Commands.VersionControl;
 
 namespace DomainServices.Utils;
 
@@ -25,9 +28,9 @@ public class CommandControl
             {
                 ChooseCommand(command!);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine("Invalid operation.");
+                Console.WriteLine("Invalid operation." + e);
             }
         }
         
@@ -75,6 +78,10 @@ public class CommandControl
                 break;
             case { } when command.Contains("git board"):
                 SetCommand(new DrawBoardCommand(Project));
+                CommandWasCalled(null);
+                break;
+            case { } when command.Contains("git chart"):
+                SetCommand(new DrawChartCommand(Project));
                 CommandWasCalled(null);
                 break;
             case { } when command.Contains("clear"):

@@ -50,7 +50,7 @@ public sealed class InProgressStateTests
         // Arrange
         Setup();
         // Act
-        _issue.SetIssueToReview();
+        _issue.SetIssueToReadyForTesting();
         var sut = _issue.State;
 
         // Assert

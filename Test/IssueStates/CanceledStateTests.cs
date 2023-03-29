@@ -60,7 +60,7 @@ public sealed class CanceledStateTests
         // Arrange
         Setup();
         // Act
-        void TestCode() => _issue.SetIssueToReview();
+        void TestCode() => _issue.SetIssueToReadyForTesting();
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }
