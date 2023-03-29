@@ -33,18 +33,29 @@ var problem = new Problem
     Description = "Factory Pattern not implemented yet", Name = "Factory Pattern", StoryPoints = 6,
     Summary = "Factory Pattern needs to be implemented for more repo types", RequestType = "Implementation"
 };
-problem.State = new ToDoState(problem);
+bug.State = new InProgressState(bug);
+
+var story = new Story
+{
+    AssignedTo = project.Contributors.FirstOrDefault(c => c.FullName.Equals("Noah de Keijzer")),
+    Description = "Done",
+    Name = "Done ",
+    StoryPoints = 6,
+};
+story.State = new DoneState(story);
 
 project.Issues.Add(bug);
 project.Issues.Add(problem);
+project.Issues.Add(story);
 
 var control = new CommandControl(project);
-//var pipeline = new Pipeline();
+var pipeline = new Pipeline();
+
 //pipeline.Attach(new PackageStep());
 //pipeline.Attach(new BuildStep());
 //pipeline.Attach(new UtilityStep());
 //pipeline.Attach(new AnalyseStep());
 //pipeline.Attach(new TestStep());
-//pipeline.Attach(new DeployStep());
+// pipeline.Attach(new DeployStep());
 //pipeline.Excecute();
- control.Listen();
+control.Listen();

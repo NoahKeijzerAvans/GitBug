@@ -12,7 +12,7 @@ namespace DomainServices.GitCommands.Commands.Board
 
         public override void Excecute(dynamic? param)
         {
-            _board.EffortPerDeveloper();
+            _board.DrawChart();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ConsoleTables;
+using Domain.Models;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 using Syncfusion.Blazor.Data;
@@ -181,20 +182,32 @@ public class ScrumBoard
             Console.Write(i.ToString() + "\t");
         }
         Console.WriteLine();
+
+        EffortPerDeveloper();
     }
 
     public void EffortPerDeveloper()
     {
-        var efforts = new Dictionary<string, double>();
         var groupedIssues = Issues.Issues
         .GroupBy(u => u.AssignedTo)
         .Select(grp => grp.ToList())
         .ToList();
 
-        var effort = 0.0;
         groupedIssues.ForEach(i =>
         {
-            i.ForEach(j => effort =+ j.StoryPoints);
+            var effort = 0.0;
+            var person = new Person();
+            i.ForEach(j => {
+                var state = j.State;
+                if(state != null)
+                {
+                    if (state!.GetType() == typeof(DoneState))
+                        effort = +j.StoryPoints;
+                }
+                person = j.AssignedTo;
+                });
+            Console.WriteLine();
+            Console.WriteLine($"{person.FullName}: {effort} storypoints done");
         });
 
     }
