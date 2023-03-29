@@ -8,7 +8,7 @@ namespace DomainServices.Factory
 {
     public class PartialProductSprintFactory : Factory
     {
-        public override Sprint createSprint()
+        public override Sprint CreateSprint()
         {
             return new PartialProductSprint();
         }
