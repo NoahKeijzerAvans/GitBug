@@ -1,5 +1,5 @@
 ﻿using Domain.Models;
-using DomainServices.Observer;
+using DomainServices.Interfaces.Observer;
 
 namespace DomainServices.Pipeline.Steps;
 

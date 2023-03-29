@@ -1,20 +1,26 @@
 ﻿using Domain.Enums;
-using Domain.Models;
+using DomainServices.Thread;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
+using DomainServices.Observer;
 
 namespace Test.IssueComposite
 {
     public sealed class IssueCompositeTests
     {
+
         private CompositeIssue _compositeIssue;
+        private Person noah;
+ 
         public IssueCompositeTests()
         {
+            noah = new Person(new MailNotification(), "Noah de Keijzer", "noah.cristiaan@gmail.com");
+
             _compositeIssue = new CompositeIssue("Project example", "Example");
 
-            var problem = new Problem("New problem", "Example",  1, new Person(), Priority.High, String.Empty, String.Empty, new List<Issue>());
-            var bug = new Bug("New Bug", "Example", 1, new Person(),  Priority.High, String.Empty, new Person(), new List<Issue>());
-            var story = new Story("New Story", "Example", 1, new Person(), Priority.High, String.Empty,
+            var problem = new Problem("New problem", "Example",  1, noah, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            var bug = new Bug("New Bug", "Example", 1, noah,  Priority.High, String.Empty, new Person(), new List<Issue>());
+            var story = new Story("New Story", "Example", 1, noah, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
 
             _compositeIssue.Add(story);
@@ -26,9 +32,9 @@ namespace Test.IssueComposite
         {
             _compositeIssue = new CompositeIssue("Project example", "Example");
 
-            var problem = new Problem("New problem", "Example",  1, new Person(), Priority.High, String.Empty, String.Empty, new List<Issue>());
-            var bug = new Bug("New Bug", "Example", 1, new Person(),  Priority.High, String.Empty, new Person(), new List<Issue>());
-            var story = new Story("New Story", "Example", 1, new Person(), Priority.High, String.Empty,
+            var problem = new Problem("New problem", "Example",  1, noah, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            var bug = new Bug("New Bug", "Example", 1, noah,  Priority.High, String.Empty, noah, new List<Issue>());
+            var story = new Story("New Story", "Example", 1, noah, Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
 
             _compositeIssue.Add(story);
@@ -53,8 +59,8 @@ namespace Test.IssueComposite
             // Arrange
             _compositeIssue = new CompositeIssue("Project example", "Example");
 
-            var problem = new Problem("New problem", "Example",  1, new Person(), Priority.High, String.Empty, String.Empty, new List<Issue>());
-            var bug = new Bug("New Bug", "Example", 1, new Person(),  Priority.High, String.Empty, new Person(), new List<Issue>());
+            var problem = new Problem("New problem", "Example",  1, noah, Priority.High, String.Empty, String.Empty, new List<Issue>());
+            var bug = new Bug("New Bug", "Example", 1, noah,  Priority.High, String.Empty, noah, new List<Issue>());
             var story = new Story("New Story", "Example", 1, new Person(), Priority.High, String.Empty,
                 "when the task is finished the task is finished", new List<Issue>());
             

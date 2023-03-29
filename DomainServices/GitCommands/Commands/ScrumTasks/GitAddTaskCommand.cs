@@ -1,5 +1,5 @@
 ﻿using Domain.Enums;
-using Domain.Models;
+using DomainServices.Thread;
 using DomainServices.Context;
 using DomainServices.Context.Task;
 
@@ -55,7 +55,7 @@ public class GitAddTaskCommand : GitCommand
         {
             foreach (var option in OptionsPeople!)
             {
-                Console.WriteLine(option.Value ? $"[x] {option.Key.FullName} " : $"[] {option.Key.FullName} ");
+                Console.WriteLine(option.Value ? $"[x] {option.Key.Name} " : $"[] {option.Key.Name} ");
             }
             CursorTop = +Console.CursorTop - OptionsPeople.Count;
             OptionsPeople = ReadKeyPressed(CursorTop, OptionsPeople);

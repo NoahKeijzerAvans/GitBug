@@ -1,5 +1,5 @@
 ﻿using Domain.Enums;
-using Domain.Models;
+using DomainServices.Thread;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 

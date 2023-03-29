@@ -8,30 +8,35 @@ using DomainServices.Observer;
 using DomainServices.Pipeline;
 using DomainServices.Pipeline.Steps;
 using DomainServices.States.IssuesState;
+using DomainServices.Thread;
 using DomainServices.Utils;
+
+var noah = new Person(new MailNotification(), "Noah de Keijzer", "noah.cristiaan@gmail.com");
+var tim = new Person(new MailNotification(), "Tim de Laater", "timdelaater@gmail.com");
+var marcel = new Person(new SlackNotification(), "Marcel de Groot", "marceldegroot@gmail.com");
 
 var project = new Project("GitBug", false, "SOFA3 Project")
 {
     Contributors = new List<Person>
     {
-        new ("timdelaater@gmail.com", "Tim", "de Laater"),
-        new ("noah.cristiaan@gmail.com", "Noah", "de Keijzer"),
-        new ("marceldegroot@gmail.com", "Marcel", "de Groot")
+        noah,
+        tim,
+        marcel
     }
 };
 
 var bug = new Bug
 {
-    AssignedTo = project.Contributors.FirstOrDefault(c => c.FullName.Equals("Noah de Keijzer")),
+    AssignedTo = noah,
     Description = "Bug Found on git add task command", Name = "Console Cursor", StoryPoints = 3,
     Summary = "Cursor does not stay where it needs to be",
-    RequestedBy = project.Contributors.First(c => c.FullName.Equals("Marcel de Groot"))
+    RequestedBy = marcel
 };
-
 bug.State = new InProgressState(bug);
+
 var problem = new Problem
 {
-    AssignedTo = project.Contributors.FirstOrDefault(c => c.FullName.Equals("Tim de Laater")),
+    AssignedTo = tim,
     Description = "Factory Pattern not implemented yet", Name = "Factory Pattern", StoryPoints = 6,
     Summary = "Factory Pattern needs to be implemented for more repo types", RequestType = "Implementation"
 };
@@ -39,7 +44,7 @@ bug.State = new InProgressState(bug);
 
 var story = new Story
 {
-    AssignedTo = project.Contributors.FirstOrDefault(c => c.FullName.Equals("Noah de Keijzer")),
+    AssignedTo = noah,
     Description = "Done",
     Name = "Done ",
     StoryPoints = 6,
@@ -60,15 +65,11 @@ pipeline.Subscribe(new AnalyseStep());
 pipeline.Subscribe(new TestStep());
 pipeline.Subscribe(new DeployStep());
 
-var thread = new DomainServices.Observer.Thread();
-
-IObserver mail = new MailNotification();
-IObserver slak = new SlakNotification();
-
-thread.Subscribe(mail);
-thread.Subscribe(mail);
-
-pipeline.Update(null);
+var thread = new IssueThread(problem, tim);
+thread.AddComment(noah, "pretty nasty bug");
+thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
+thread.PrintThread();
+// pipeline.Update(null);
 
 
 

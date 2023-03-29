@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainServices.Observer
+namespace DomainServices.Interfaces.Observer
 {
-    public interface INotificationStrategy: IObserver
+    public interface IObserver
     {
+        public void Update(object? data);
     }
 }

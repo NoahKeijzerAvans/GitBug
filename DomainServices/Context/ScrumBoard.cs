@@ -1,5 +1,5 @@
 ﻿using ConsoleTables;
-using Domain.Models;
+using DomainServices.Thread;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 using Syncfusion.Blazor.Data;
@@ -207,7 +207,7 @@ public class ScrumBoard
                 person = j.AssignedTo;
                 });
             Console.WriteLine();
-            Console.WriteLine($"{person.FullName}: {effort} storypoints done");
+            Console.WriteLine($"{person.Email}: {effort} storypoints done");
         });
 
     }

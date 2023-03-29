@@ -1,4 +1,4 @@
-﻿using DomainServices.Observer;
+﻿using DomainServices.Interfaces.Observer;
 
 namespace DomainServices.Pipeline
 {

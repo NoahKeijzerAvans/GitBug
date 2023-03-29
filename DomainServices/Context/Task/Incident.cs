@@ -1,5 +1,5 @@
 ﻿using Domain.Enums;
-using Domain.Models;
+using DomainServices.Thread;
 
 namespace DomainServices.Context.Task;
 public class Incident : Issue

@@ -1,7 +1,7 @@
 ﻿using Domain.Enums;
-using Domain.Models;
 using DomainServices.Interfaces.Issue;
 using DomainServices.States.IssuesState;
+using DomainServices.Thread;
 
 namespace DomainServices.Context.Task;
 

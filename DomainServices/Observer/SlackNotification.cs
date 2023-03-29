@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainServices.Interfaces.Notifications;
 
 namespace DomainServices.Observer
 {
-    public class SlakNotification : INotificationStrategy
+    public class SlackNotification : INotificationStrategy
 
     {
         public void Update(object? data)
