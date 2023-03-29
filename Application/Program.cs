@@ -40,13 +40,13 @@ var problem = new Problem
     Description = "Factory Pattern not implemented yet", Name = "Factory Pattern", StoryPoints = 6,
     Summary = "Factory Pattern needs to be implemented for more repo types", RequestType = "Implementation"
 };
-bug.State = new InProgressState(bug);
+problem.State = new InProgressState(bug);
 
 var story = new Story
 {
     AssignedTo = noah,
     Description = "Done",
-    Name = "Done ",
+    Name = "How do I implement the slack notification",
     StoryPoints = 6,
 };
 story.State = new DoneState(story);
@@ -65,11 +65,12 @@ pipeline.Subscribe(new AnalyseStep());
 pipeline.Subscribe(new TestStep());
 pipeline.Subscribe(new DeployStep());
 
-var thread = new IssueThread(problem, tim);
-thread.AddComment(noah, "pretty nasty bug");
+var thread = new IssueThread(story, tim);
+thread.AddComment(noah, "Pretty Nasty Bug");
 thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
-thread.PrintThread();
-// pipeline.Update(null);
+thread.PrintThreadWithoutReplyOption(null);
+
+//// pipeline.Update(null);
 
 
 
