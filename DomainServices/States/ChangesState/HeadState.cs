@@ -96,5 +96,9 @@ public class HeadState : IChangesState
             Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
         }
     }
+    public override string ToString()
+    {
+        return "Head";
+    }
 }
 

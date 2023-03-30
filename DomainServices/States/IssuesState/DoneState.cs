@@ -12,33 +12,31 @@ public class DoneState : IIssueState
     }
     public void SetIssueToDo()
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is already finalized");
     }
 
     public void SetIssueToInProgress()
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is already finalized");
     }
 
     public void SetIssueToDone()
     {
-        Console.WriteLine("This item is already finalized");
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is already finalized");
     }
 
     public void SetIssueToCanceled()
     {
-        Console.WriteLine("This item is already finalized");
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("This item is already finalized");
     }
 
     public void SetIssueToReadyForTesting()
     {
-        throw new NotImplementedException();
+        throw new InvalidOperationException("This item is already finalized");
     }
 
     public void SetIssueToTested()
     {
-        throw new NotImplementedException();
+        throw new InvalidOperationException("This item is already finalized");
     }
 }

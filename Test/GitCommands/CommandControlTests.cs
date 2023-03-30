@@ -51,7 +51,7 @@ public class CommandControlTests
         Assert.IsType<GitCheckoutCommand>(Control.Command);
     }
     [Fact]
-    public void Should_Not_Choose_Git_Push_Command_When_Instruction_Contains_git_push_With_No_Branch_Name()
+    public void Should_Choose_Git_Push_Command_When_Instruction_Contains_git_push()
     {
         // Act
         Control.ChooseCommand("git push");
@@ -60,10 +60,10 @@ public class CommandControlTests
         Assert.IsType<GitPushCommand>(Control.Command);
     }
     [Fact]
-    public void Should_Not_Choose_Git_Pull_Command_When_Instruction_Contains_git_checkout_With_No_Branch_Name()
+    public void Should_Choose_Git_Pull_Command_When_Instruction_Contains_git_pull()
     {
         // Act
-        Control.ChooseCommand("git push checkout");
+        Control.ChooseCommand("git pull");
 
         // Assert
         Assert.IsType<GitPullCommand>(Control.Command);

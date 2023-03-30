@@ -38,12 +38,12 @@ public class WorkingDirectoryState : IChangesState
 
     public void PullToWorkingDirectory()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Pulled to Working Directory");
+        Context.State = new WorkingDirectoryState(Context);
     }
     public void PushToRemote()
     {
-        Console.WriteLine("Commit the changes first.");
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("Commit the changes first.");
     }
 
     public void SetContext(Project context)
@@ -104,5 +104,9 @@ public class WorkingDirectoryState : IChangesState
             Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
             Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
         }
+    }
+    public override string ToString()
+    {
+        return "Working Directory";
     }
 }

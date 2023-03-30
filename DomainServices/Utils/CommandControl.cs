@@ -32,7 +32,7 @@ public class CommandControl
             }
             catch (Exception e)
             {
-                Console.WriteLine("Invalid operation." + e);
+                Console.WriteLine("Invalid operation: " + e.Message);
             }
         }
     }
@@ -53,28 +53,30 @@ public class CommandControl
         ReadOnlySpan<char> span = command;
         switch (command)
         {
+            case { } when command.Contains("git state"):
+                SetCommand(new GitState(Project));
+                CommandWasCalled(null);
+                break;
             case { } when command.Contains("git add"):
                 SetCommand(new GitAddChangesCommand(Project));
                 CommandWasCalled(new Change(Project));
                 break;
             case { } when command.Contains("git commit"):
-                var description = span[13..];
                 SetCommand(new GitCommitCommand(Project));
-                CommandWasCalled(description.ToString());
+                CommandWasCalled(null);
                 break;
             case { } when command.Contains("git pull"):
                 SetCommand(new GitPullCommand(Project));
                 CommandWasCalled(null);
                 break;
             case { } when command.Contains("git push"):
-                var branch = span[16..];
                 SetCommand(new GitPushCommand(Project));
-                CommandWasCalled(branch.ToString());
+                CommandWasCalled(null);
                 break;
             case { } when command.Contains("git checkout"):
                 var name = span[16..];
                 SetCommand(new GitCheckoutCommand(Project));
-                CommandWasCalled(name.ToString());
+                CommandWasCalled(null);
                 break;
             case { } when command.Contains("git board"):
                 SetCommand(new DrawBoardCommand(Project));

@@ -13,7 +13,7 @@ using DomainServices.Observer;
 
 namespace DomainServices.Context;
 
-public class Project: IChangeStateable
+public class Project : IChangeStateable
 {
     private string Name { get; set; }
     private ReleaseSprintFactory ReleaseSprintFactory { get; set; }
@@ -48,7 +48,7 @@ public class Project: IChangeStateable
     }
     public Sprint GetCurrentSprint()
     {
-       return Sprints.First(s => s.SprintStatus.Equals(SprintStatus.INPROGRESS));
+        return Sprints.First(s => s.SprintStatus.Equals(SprintStatus.INPROGRESS));
     }
 
     public void CommitChanges(string description)
@@ -87,7 +87,10 @@ public class Project: IChangeStateable
         State.CheckoutBranch(name);
         UpdateCurrentState();
     }
-
+    public IChangesState GetCurrentState()
+    {
+        return CurrentBranch.GetCurrentState()!;
+    }
     private void UpdateCurrentState()
     {
         State = CurrentBranch.GetCurrentState() ?? new WorkingDirectoryState(this);
