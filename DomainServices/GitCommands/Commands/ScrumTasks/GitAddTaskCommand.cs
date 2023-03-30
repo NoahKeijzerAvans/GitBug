@@ -41,7 +41,7 @@ public class GitAddTaskCommand : GitCommand
 
     }
 
-    public override void Excecute(dynamic? param)
+    public override void Excecute(object? param)
     {
         Console.WriteLine();
         Console.WriteLine("Select the type of task that needs to be created by pressing Enter key.");

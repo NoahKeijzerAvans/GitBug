@@ -53,42 +53,45 @@ public class Project : IChangeStateable
 
     public void CommitChanges(string description)
     {
-        State.CommitChanges(description);
+        GetCurrentState().CommitChanges(description);
     }
 
     public void AddChange(Change change)
     {
-        State.AddChange(change);
+        GetCurrentState().AddChange(change);
     }
 
     public void PushToRemote()
     {
-        State.PushToRemote();
+        GetCurrentState().PushToRemote();
     }
 
     public void PullToWorkingDirectory()
     {
-        State.PullToWorkingDirectory();
+        GetCurrentState().PullToWorkingDirectory();
     }
 
     public void CreateBranch()
     {
-        State.CreateBranch();
+        GetCurrentState().CreateBranch();
     }
 
     public void DeleteBranch(Branch branch)
     {
-        State.DeleteBranch(branch);
+        GetCurrentState().DeleteBranch(branch);
         UpdateCurrentState();
     }
 
     public void CheckoutBranch(string name)
     {
-        State.CheckoutBranch(name);
+        GetCurrentState().CheckoutBranch(name);
         UpdateCurrentState();
     }
     public IChangesState GetCurrentState()
     {
+        var currentState = CurrentBranch.GetCurrentState();
+        if (currentState == null || currentState.GetType() == typeof(RemoteState))
+            return State;
         return CurrentBranch.GetCurrentState()!;
     }
     private void UpdateCurrentState()

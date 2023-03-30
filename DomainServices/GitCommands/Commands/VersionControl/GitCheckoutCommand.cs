@@ -8,7 +8,7 @@ public class GitCheckoutCommand : GitCommand
     {
     }
 
-    public override void Excecute(dynamic? param)
+    public override void Excecute(object? param)
     {
         Context.CheckoutBranch(param);
     }

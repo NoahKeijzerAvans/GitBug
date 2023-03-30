@@ -8,7 +8,7 @@ namespace DomainServices.GitCommands.Commands.Board
         {
         }
 
-        public override void Excecute(dynamic? param)
+        public override void Excecute(object? param)
         {
             Context.GetCurrentSprint().Scumboard.DrawChart();
         }

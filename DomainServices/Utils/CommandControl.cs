@@ -32,7 +32,7 @@ public class CommandControl
             }
             catch (Exception e)
             {
-                Console.WriteLine("Invalid operation: " + e.Message);
+                Console.WriteLine("Invalid operation:" + e.Message);
             }
         }
     }
@@ -43,7 +43,7 @@ public class CommandControl
     }
     
     // Invoker
-    private void CommandWasCalled(dynamic? paramether)
+    private void CommandWasCalled(object? paramether)
     {
         Command.Excecute(paramether);
     }
@@ -76,7 +76,7 @@ public class CommandControl
             case { } when command.Contains("git checkout"):
                 var name = span[16..];
                 SetCommand(new GitCheckoutCommand(Project));
-                CommandWasCalled(null);
+                CommandWasCalled(name.ToString());
                 break;
             case { } when command.Contains("git board"):
                 SetCommand(new DrawBoardCommand(Project));

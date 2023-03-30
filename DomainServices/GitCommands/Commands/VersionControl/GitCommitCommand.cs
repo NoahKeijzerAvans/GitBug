@@ -9,7 +9,7 @@ public class GitCommitCommand : GitCommand
     {
     }
 
-    public override void Excecute(dynamic? param)
+    public override void Excecute(object? param)
     {
         Context.CommitChanges(param!);
     }

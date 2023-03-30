@@ -8,7 +8,7 @@ public class GitPullCommand : GitCommand
     {
     }
 
-    public override void Excecute(dynamic? param)
+    public override void Excecute(object? param)
     {
         Context.PullToWorkingDirectory();
     }

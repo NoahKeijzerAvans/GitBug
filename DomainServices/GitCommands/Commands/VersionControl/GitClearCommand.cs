@@ -8,7 +8,7 @@ public class GitClearCommand : GitCommand
     {
     }
 
-    public override void Excecute(dynamic? param)
+    public override void Excecute(object? param)
     {
         Console.Clear();
     }

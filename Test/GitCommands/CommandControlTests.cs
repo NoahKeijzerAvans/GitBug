@@ -45,7 +45,7 @@ public class CommandControlTests
     public void Should_Choose_Git_Checkout_Command_When_Instruction_Contains_git_checkout_With_Branch_Name()
     {
         // Act
-        Control.ChooseCommand("git checkout -b slave");
+        Control.ChooseCommand("git checkout");
 
         // Assert
         Assert.IsType<GitCheckoutCommand>(Control.Command);
