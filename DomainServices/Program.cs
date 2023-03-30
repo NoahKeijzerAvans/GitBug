@@ -14,6 +14,6 @@ subscriber.subscribe(mail);
 subscriber.subscribe(slak);
 subscriber.notify("Kaas");
 
-Factory factory = new ReleaseSprintFactory();
-Sprint kaas = factory.CreateSprint();
-kaas.print();
+SprintFactory factory = new ReleaseSprintFactory();
+Sprint sprint = factory.CreateSprint(DateOnly.FromDateTime(DateTime.Now), DateOnly.FromDateTime(DateTime.Now.AddDays(1)));
+sprint.Print("Test Facotry");

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Factory
 {
-    public class ReleaseSprintFactory : Factory
+    public class ReleaseSprintFactory : SprintFactory
     {
-        public override Sprint CreateSprint()
+        public override Sprint CreateSprint(DateOnly startDate, DateOnly endDate)
         {
-            return new ReleaseSprint();
+            return new ReleaseSprint(startDate, endDate);
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Factory
 {
-    public abstract class Factory
+    public abstract class SprintFactory
     {
-        public abstract Sprint CreateSprint();
+        public abstract Sprint CreateSprint(DateOnly startDate, DateOnly endDate);
         
     }
 }

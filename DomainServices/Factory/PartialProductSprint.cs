@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainServices.Interfaces.Pipeline;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,13 @@ namespace DomainServices.Factory
 {
     public class PartialProductSprint : Sprint
     {
-        public void print()
+        public PartialProductSprint(DateOnly startDate, DateOnly endDate) : base(startDate, endDate)
+        {
+            
+        }
+
+      
+        public override void SetPipeline(IPipeline pipeline)
         {
             throw new NotImplementedException();
         }
