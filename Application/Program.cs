@@ -4,6 +4,7 @@ using Domain.Models;
 using DomainServices.Context;
 using DomainServices.Context.PipelineContext;
 using DomainServices.Context.Task;
+using DomainServices.Factory;
 using DomainServices.Observer;
 using DomainServices.Pipeline;
 using DomainServices.Pipeline.Steps;
@@ -15,6 +16,25 @@ var noah = new Person(new MailNotification(), "Noah de Keijzer", "noah.cristiaan
 var tim = new Person(new MailNotification(), "Tim de Laater", "timdelaater@gmail.com");
 var marcel = new Person(new SlackNotification(), "Marcel de Groot", "marceldegroot@gmail.com");
 
+
+var sprint1 = new PartialProductSprint("Sprint 1")
+{
+    DateStart = DateTime.Now,
+    DateEnd = DateTime.Now.AddDays(3),
+    SprintStatus = Domain.Enums.SprintStatus.FINISHED
+};
+var sprint2 = new PartialProductSprint("Sprint 2")
+{
+    DateStart = DateTime.Now,
+    DateEnd = DateTime.Now.AddDays(3),
+    SprintStatus = Domain.Enums.SprintStatus.FINISHED
+};
+var sprint3 = new PartialProductSprint("Sprint 3")
+{
+    DateStart = DateTime.Now,
+    DateEnd = DateTime.Now.AddDays(3),
+    SprintStatus = Domain.Enums.SprintStatus.INPROGRESS
+};
 var project = new Project("GitBug")
 {
     Contributors = new List<Person>
@@ -23,6 +43,12 @@ var project = new Project("GitBug")
         tim,
         marcel
     },
+    Sprints =
+    {
+       sprint1,
+       sprint2,
+       sprint3
+    }
 };
 
 var bug = new Bug
@@ -64,10 +90,10 @@ pipeline.Subscribe(new AnalyseStep());
 pipeline.Subscribe(new TestStep());
 pipeline.Subscribe(new DeployStep());
 
-//var thread = new IssueThread(problem, tim);
-//thread.AddComment(noah, "Pretty Nasty Bug");
-//thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
+var thread = new IssueThread(problem, tim);
+thread.AddComment(noah, "Pretty Nasty Bug");
+thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
 //thread.PrintThreadWithoutReplyOption(null);
-
+//sprint3.ShowThreads();
 //// pipeline.Update(null);
 control.Listen();

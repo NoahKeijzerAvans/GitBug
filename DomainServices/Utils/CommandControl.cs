@@ -4,6 +4,7 @@ using DomainServices.GitCommands;
 using DomainServices.GitCommands.Commands;
 using DomainServices.GitCommands.Commands.Board;
 using DomainServices.GitCommands.Commands.ScrumTasks;
+using DomainServices.GitCommands.Commands.Thread;
 using DomainServices.GitCommands.Commands.VersionControl;
 
 namespace DomainServices.Utils;
@@ -82,6 +83,10 @@ public class CommandControl
                 break;
             case { } when command.Contains("git chart"):
                 SetCommand(new DrawChartCommand(Project));
+                CommandWasCalled(null);
+                break;
+            case { } when command.Contains("git threads"):
+                SetCommand(new ShowThreadsCommand(Project));
                 CommandWasCalled(null);
                 break;
             case { } when command.Contains("clear"):

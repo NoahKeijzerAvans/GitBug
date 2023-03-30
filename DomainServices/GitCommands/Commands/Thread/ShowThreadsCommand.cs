@@ -15,7 +15,7 @@ namespace DomainServices.GitCommands.Commands.Thread
 
         public override void Excecute(object? param)
         {
-            throw new NotImplementedException();
+            Context.GetCurrentSprint().ShowThreads();
         }
     }
 }

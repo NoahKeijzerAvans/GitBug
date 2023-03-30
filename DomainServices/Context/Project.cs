@@ -8,6 +8,8 @@ using DomainServices.Factory;
 using Microsoft.VisualBasic;
 using Domain.Enums;
 using System.Xml.Linq;
+using Domain.Models.Comments;
+using DomainServices.Observer;
 
 namespace DomainServices.Context;
 
@@ -50,6 +52,7 @@ public class Project: IChangeStateable
     {
        return Sprints.First(s => s.SprintStatus.Equals(SprintStatus.INPROGRESS));
     }
+
     public void CommitChanges(string description)
     {
         State.CommitChanges(description);
