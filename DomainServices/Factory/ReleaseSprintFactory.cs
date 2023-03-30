@@ -8,9 +8,9 @@ namespace DomainServices.Factory
 {
     public class ReleaseSprintFactory : Factory
     {
-        public override Sprint CreateSprint()
+        public override Sprint CreateSprint(string name)
         {
-            return new ReleaseSprint();
+            return new ReleaseSprint(name);
         }
     }
 }

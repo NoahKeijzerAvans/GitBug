@@ -4,40 +4,51 @@ using DomainServices.Context.VersionControl;
 using DomainServices.Interfaces.Change;
 using Change = DomainServices.Context.VersionControl.Change;
 using DomainServices.Thread;
+using DomainServices.Factory;
+using Microsoft.VisualBasic;
+using Domain.Enums;
+using System.Xml.Linq;
 
 namespace DomainServices.Context;
 
 public class Project: IChangeStateable
 {
-    // ReSharper disable once NotAccessedField.Local
-    private Guid? _projectIdGuid;
-    // ReSharper disable once NotAccessedField.Local
-    private string _name;
-    // ReSharper disable once NotAccessedField.Local
-    private bool _isPrivate;
-    // ReSharper disable once NotAccessedField.Local
-    private string _description;
+    private string Name { get; set; }
+    private ReleaseSprintFactory ReleaseSprintFactory { get; set; }
+    private PartialProductSprintFactory PartialProductSprintFactory { get; set; }
+    public List<Sprint> Sprints { get; set; }
     public List<Person> Contributors { get; init; }
     public Branch CurrentBranch { get; set; }
     public List<Branch> Branches { get; }
 
     public IChangesState State { get; set; }
-    public CompositeIssue Issues { get; set; }
 
-    public Project(string name, bool isPrivate, string description)
+    public Project(string name)
     {
+        Name = name;
+        ReleaseSprintFactory = new ReleaseSprintFactory();
+        PartialProductSprintFactory = new PartialProductSprintFactory();
         CurrentBranch = new Branch("master");
         Branches = new List<Branch>
         {
             CurrentBranch
         };
-        Issues = new CompositeIssue("Scrum Board", "This is the scrum board for your GitBug repo.");
+        Sprints = new List<Sprint>();
         State = CurrentBranch.GetCurrentState() ?? new WorkingDirectoryState(this);
-        _projectIdGuid = Guid.NewGuid();
         Contributors = new List<Person>();
-        _name = name;
-        _isPrivate = isPrivate;
-        _description = description;
+    }
+    public void CreateSprint()
+    {
+        Console.WriteLine("Create a Partial Product or Release Sprint? p/r");
+        var answer = Console.ReadLine();
+        if (answer!.Equals("p"))
+            Sprints.Add(PartialProductSprintFactory.CreateSprint($"Sprint {Sprints.Count + 1}"));
+        else if (answer!.Equals("f"))
+            Sprints.Add(ReleaseSprintFactory.CreateSprint($"Sprint {Sprints.Count + 1}"));
+    }
+    public Sprint GetCurrentSprint()
+    {
+       return Sprints.First(s => s.SprintStatus.Equals(SprintStatus.INPROGRESS));
     }
     public void CommitChanges(string description)
     {

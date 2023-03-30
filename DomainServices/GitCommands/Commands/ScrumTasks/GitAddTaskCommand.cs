@@ -117,7 +117,7 @@ public class GitAddTaskCommand : GitCommand
         issueToBeAdded.StoryPoints = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("Enter the name person assigned to the issue: ");
         issueToBeAdded.AssignedTo = SelectPerson();
-        Context.Issues.Add(issueToBeAdded);
+        Context.GetCurrentSprint().AddIssue(issueToBeAdded);
         Console.WriteLine("Issue added successfully!");
         Console.WriteLine();
     }

@@ -15,14 +15,14 @@ var noah = new Person(new MailNotification(), "Noah de Keijzer", "noah.cristiaan
 var tim = new Person(new MailNotification(), "Tim de Laater", "timdelaater@gmail.com");
 var marcel = new Person(new SlackNotification(), "Marcel de Groot", "marceldegroot@gmail.com");
 
-var project = new Project("GitBug", false, "SOFA3 Project")
+var project = new Project("GitBug")
 {
     Contributors = new List<Person>
     {
         noah,
         tim,
         marcel
-    }
+    },
 };
 
 var bug = new Bug
@@ -50,10 +50,9 @@ var story = new Story
     StoryPoints = 6,
 };
 story.State = new DoneState(story);
-
-project.Issues.Add(bug);
-project.Issues.Add(problem);
-project.Issues.Add(story);
+project.GetCurrentSprint().AddIssue(bug);
+project.GetCurrentSprint().AddIssue(problem);
+project.GetCurrentSprint().AddIssue(story);
 
 var control = new CommandControl(project);
 var pipeline = new Pipeline();
@@ -65,15 +64,10 @@ pipeline.Subscribe(new AnalyseStep());
 pipeline.Subscribe(new TestStep());
 pipeline.Subscribe(new DeployStep());
 
-var thread = new IssueThread(story, tim);
-thread.AddComment(noah, "Pretty Nasty Bug");
-thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
-thread.PrintThreadWithoutReplyOption(null);
+//var thread = new IssueThread(problem, tim);
+//thread.AddComment(noah, "Pretty Nasty Bug");
+//thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
+//thread.PrintThreadWithoutReplyOption(null);
 
 //// pipeline.Update(null);
-
-
-
-
-
-// control.Listen();
+control.Listen();

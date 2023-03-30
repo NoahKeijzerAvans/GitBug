@@ -9,6 +9,10 @@ namespace DomainServices.Factory
 {
     public class PartialProductSprint: Sprint
     {
+        public PartialProductSprint(string name) : base(name)
+        {
+        }
+
         public void print()
         {
             throw new NotImplementedException();

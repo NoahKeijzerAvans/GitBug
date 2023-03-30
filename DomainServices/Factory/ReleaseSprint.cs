@@ -9,6 +9,10 @@ namespace DomainServices.Factory
 {
     public class ReleaseSprint:  Sprint
     {
+        public ReleaseSprint(string name) : base(name)
+        {
+        }
+
         public void print()
         {
             Console.WriteLine("test");
