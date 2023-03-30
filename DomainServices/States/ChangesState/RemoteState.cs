@@ -13,22 +13,23 @@ public class RemoteState : IChangesState
     }
     public void AddChange(Change? changes)
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("Cannot add changes in Remote State");
     }
 
     public void CommitChanges(string description)
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("Cannot commit in Remote State");
     }
 
     public void PullToWorkingDirectory()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Pulled changes to Working Directory");
+        Context.State = new WorkingDirectoryState(Context);
     }
 
     public void PushToRemote()
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("Already on remote state");
     }
 
     public void SetContext(Project context)

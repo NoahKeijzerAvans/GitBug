@@ -21,6 +21,7 @@ public class CommandControl
 
     public void Listen()
     {
+        Console.Clear();
         Console.WriteLine("Welcome to GitBug, your command is my order!");
         while (true)
         {
@@ -34,8 +35,6 @@ public class CommandControl
                 Console.WriteLine("Invalid operation." + e);
             }
         }
-        
-        // ReSharper disable once FunctionNeverReturns
     }
 
     private void SetCommand(GitCommand command)
@@ -58,21 +57,21 @@ public class CommandControl
                 SetCommand(new GitAddChangesCommand(Project));
                 CommandWasCalled(new Change(Project));
                 break;
-            case { } when command.Contains("git commit -m"):
+            case { } when command.Contains("git commit"):
                 var description = span[13..];
                 SetCommand(new GitCommitCommand(Project));
                 CommandWasCalled(description.ToString());
                 break;
-            case { } when command.Contains("git pull origin"):
+            case { } when command.Contains("git pull"):
                 SetCommand(new GitPullCommand(Project));
                 CommandWasCalled(null);
                 break;
-            case { } when command.Contains("git push origin"):
+            case { } when command.Contains("git push"):
                 var branch = span[16..];
                 SetCommand(new GitPushCommand(Project));
                 CommandWasCalled(branch.ToString());
                 break;
-            case { } when command.Contains("git checkout -b"):
+            case { } when command.Contains("git checkout"):
                 var name = span[16..];
                 SetCommand(new GitCheckoutCommand(Project));
                 CommandWasCalled(name.ToString());
@@ -102,11 +101,18 @@ public class CommandControl
                 CommandWasCalled(null);
                 break;
             default:
+                Console.WriteLine();
                 Console.WriteLine("Valid operations: ");
-                Console.WriteLine("git commit -m");
+                Console.WriteLine("git commit");
                 Console.WriteLine("git add");
-                Console.WriteLine("git pull origin");
-                Console.WriteLine("git checkout -b");
+                Console.WriteLine("git pull");
+                Console.WriteLine("git checkout");
+                Console.WriteLine("git clone");
+                Console.WriteLine("git task");
+                Console.WriteLine("git threads");
+                Console.WriteLine("git board");
+                Console.WriteLine("clear");
+                Console.WriteLine();
                 break;
         }
     }

@@ -16,6 +16,39 @@ var noah = new Person(new MailNotification(), "Noah de Keijzer", "noah.cristiaan
 var tim = new Person(new MailNotification(), "Tim de Laater", "timdelaater@gmail.com");
 var marcel = new Person(new SlackNotification(), "Marcel de Groot", "marceldegroot@gmail.com");
 
+var bug = new Bug
+{
+    AssignedTo = noah,
+    Description = "Bug Found on git add task command",
+    Name = "Console Cursor",
+    StoryPoints = 3,
+    Summary = "Cursor does not stay where it needs to be",
+    RequestedBy = marcel
+};
+bug.State = new InProgressState(bug);
+
+var problem = new Problem
+{
+    AssignedTo = tim,
+    Description = "Factory Pattern not implemented yet",
+    Name = "Factory Pattern",
+    StoryPoints = 6,
+    Summary = "Factory Pattern needs to be implemented for more repo types",
+    RequestType = "Implementation"
+};
+problem.State = new InProgressState(bug);
+var story = new Story
+{
+    AssignedTo = noah,
+    Description = "Done",
+    Name = "How do I implement the slack notification",
+    StoryPoints = 6,
+};
+
+story.State = new DoneState(story);
+var thread = new IssueThread(problem, tim);
+thread.AddComment(noah, "Pretty Nasty Bug");
+thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
 
 var sprint1 = new PartialProductSprint("Sprint 1")
 {
@@ -33,8 +66,13 @@ var sprint3 = new PartialProductSprint("Sprint 3")
 {
     DateStart = DateTime.Now,
     DateEnd = DateTime.Now.AddDays(3),
-    SprintStatus = Domain.Enums.SprintStatus.INPROGRESS
+    SprintStatus = Domain.Enums.SprintStatus.INPROGRESS,
+    Threads =
+    {
+        thread
+    }
 };
+
 var project = new Project("GitBug")
 {
     Contributors = new List<Person>
@@ -51,31 +89,6 @@ var project = new Project("GitBug")
     }
 };
 
-var bug = new Bug
-{
-    AssignedTo = noah,
-    Description = "Bug Found on git add task command", Name = "Console Cursor", StoryPoints = 3,
-    Summary = "Cursor does not stay where it needs to be",
-    RequestedBy = marcel
-};
-bug.State = new InProgressState(bug);
-
-var problem = new Problem
-{
-    AssignedTo = tim,
-    Description = "Factory Pattern not implemented yet", Name = "Factory Pattern", StoryPoints = 6,
-    Summary = "Factory Pattern needs to be implemented for more repo types", RequestType = "Implementation"
-};
-problem.State = new InProgressState(bug);
-
-var story = new Story
-{
-    AssignedTo = noah,
-    Description = "Done",
-    Name = "How do I implement the slack notification",
-    StoryPoints = 6,
-};
-story.State = new DoneState(story);
 project.GetCurrentSprint().AddIssue(bug);
 project.GetCurrentSprint().AddIssue(problem);
 project.GetCurrentSprint().AddIssue(story);
@@ -90,9 +103,6 @@ pipeline.Subscribe(new AnalyseStep());
 pipeline.Subscribe(new TestStep());
 pipeline.Subscribe(new DeployStep());
 
-var thread = new IssueThread(problem, tim);
-thread.AddComment(noah, "Pretty Nasty Bug");
-thread.AddComment(marcel, "I got the following solution: {{ beautifull code here }}");
 //thread.PrintThreadWithoutReplyOption(null);
 //sprint3.ShowThreads();
 //// pipeline.Update(null);

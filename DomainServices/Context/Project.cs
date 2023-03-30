@@ -22,9 +22,7 @@ public class Project: IChangeStateable
     public List<Person> Contributors { get; init; }
     public Branch CurrentBranch { get; set; }
     public List<Branch> Branches { get; }
-
     public IChangesState State { get; set; }
-
     public Project(string name)
     {
         Name = name;

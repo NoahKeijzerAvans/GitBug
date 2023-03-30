@@ -12,7 +12,7 @@ namespace DomainServices.Factory
     {
         private bool EnterPressed { get; set; }
 
-        private List<Dictionary<Issue, Position>> issuePosition;
+        private readonly List<Dictionary<Issue, Position>> IssuePosition;
         public SprintStatus SprintStatus { get; set; }
         public string Name { get; set; }
         public DateTime DateStart { get; set; }
@@ -23,6 +23,7 @@ namespace DomainServices.Factory
 
         public Sprint(string name)
         {
+            IssuePosition = new List<Dictionary<Issue, Position>>();
             SprintStatus = SprintStatus.OPEN;
             Name = name;
             Threads = new List<IssueThread>();
@@ -57,8 +58,8 @@ namespace DomainServices.Factory
 
         private void SelectIssue()
         {
-            var issueSelected = issuePosition.FirstOrDefault();
-            var indexSelected = issuePosition.IndexOf(issueSelected!);
+            var issueSelected = IssuePosition.FirstOrDefault();
+            var indexSelected = IssuePosition.IndexOf(issueSelected!);
             var key = Console.ReadKey();
             while (!EnterPressed)
             {
@@ -70,7 +71,7 @@ namespace DomainServices.Factory
                     case ConsoleKey.DownArrow:
                         Console.SetCursorPosition(Left - 10, Top);
                         Console.Write("[ ] Reply?");
-                        if (CheckIfOutOfBoundsDown(indexSelected, issuePosition))
+                        if (CheckIfOutOfBoundsDown(indexSelected, IssuePosition))
                             indexSelected++;
                         else
                             indexSelected = 0;
@@ -81,7 +82,7 @@ namespace DomainServices.Factory
                         Console.SetCursorPosition(Left - 10, Top);
                         Console.Write("[ ] Reply?");
                         if (CheckIfOutOfBoundsUp(indexSelected))
-                            indexSelected = issuePosition.Count - 1;
+                            indexSelected = IssuePosition.Count - 1;
                         else
                             indexSelected--;
                         SetCursorOnPosition(indexSelected);
@@ -101,14 +102,14 @@ namespace DomainServices.Factory
         private void CreateNewThread(int indexSelected)
         {
             var creator = new Person(new MailNotification(), "Noah de Keijzer", "noah.cristiaan@gmail.com");
-            var threadToAdd = new IssueThread(issuePosition![indexSelected].FirstOrDefault().Key, creator);
+            var threadToAdd = new IssueThread(IssuePosition![indexSelected].FirstOrDefault().Key, creator);
             Console.WriteLine("How do you want to start the thread?");
             var content = Console.ReadLine();
             threadToAdd.AddComment(creator, content!);
             threadToAdd.Subscribe(creator);
             Update(null);
             Subscribe(creator);
-            issuePosition.Clear();
+            IssuePosition.Clear();
         }
 
         private void AddNewPosition(Issue issue)
@@ -117,7 +118,7 @@ namespace DomainServices.Factory
                     {
                         { issue, new Position(Console.CursorLeft, Console.CursorTop) }
                     };
-            issuePosition.Add(newPosition);
+            IssuePosition.Add(newPosition);
         }
         private void SetCursorOnPosition(int index)
         {
@@ -125,7 +126,7 @@ namespace DomainServices.Factory
         }
         private Position GetNewPosition(int index)
         {
-            return issuePosition![index].FirstOrDefault().Value;
+            return IssuePosition![index].FirstOrDefault().Value;
         }
         private bool CheckIfOutOfBoundsDown(int index, List<Dictionary<Issue, Position>> issuePosition)
         {

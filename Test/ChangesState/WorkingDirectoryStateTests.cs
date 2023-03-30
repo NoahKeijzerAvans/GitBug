@@ -12,7 +12,7 @@ public sealed class WorkingDirectoryStateTests
 
     public WorkingDirectoryStateTests()
     {
-        _project = new Project("Test", false, "test environment");
+        _project = new Project("Test");
         _project.State = new WorkingDirectoryState(_project);
         _change = new Change(new object(), _project);
     }

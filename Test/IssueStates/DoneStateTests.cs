@@ -55,7 +55,7 @@ public sealed class DoneStateTests
         Assert.Throws<InvalidOperationException>(TestCode);
     }
     [Fact]
-    public void Should_Throw_Invalid_Operation_Exception_When_Set_To_Review_Is_Called()
+    public void Should_Throw_Invalid_Operation_Exception_When_Set_To_Ready_For_Testing_Is_Called()
     {
         // Arrange
         Setup();

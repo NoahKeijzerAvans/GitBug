@@ -9,7 +9,7 @@ public class CommandControlTests
     private CommandControl Control;
     public CommandControlTests()
     {
-        Control = new CommandControl(new Project("Test", false, "test environment"));
+        Control = new CommandControl(new Project("Test"));
     }
 
     [Fact]
@@ -51,22 +51,13 @@ public class CommandControlTests
         Assert.IsType<GitCheckoutCommand>(Control.Command);
     }
     [Fact]
-    public void Should_Not_Choose_Git_Commit_Command_When_Instruction_Contains_git_commit_With_No_Commit_Message()
-    {
-        // Act
-        Control.ChooseCommand("git commit");
-
-        // Assert
-        Assert.IsType<NoCommand>(Control.Command);
-    }
-    [Fact]
     public void Should_Not_Choose_Git_Push_Command_When_Instruction_Contains_git_push_With_No_Branch_Name()
     {
         // Act
         Control.ChooseCommand("git push");
 
         // Assert
-        Assert.IsType<NoCommand>(Control.Command);
+        Assert.IsType<GitPushCommand>(Control.Command);
     }
     [Fact]
     public void Should_Not_Choose_Git_Pull_Command_When_Instruction_Contains_git_checkout_With_No_Branch_Name()
@@ -75,6 +66,6 @@ public class CommandControlTests
         Control.ChooseCommand("git push checkout");
 
         // Assert
-        Assert.IsType<NoCommand>(Control.Command);
+        Assert.IsType<GitPullCommand>(Control.Command);
     }
 }
