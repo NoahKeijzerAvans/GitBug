@@ -62,8 +62,9 @@ public class CommandControl
                 CommandWasCalled(new Change(Project));
                 break;
             case { } when command.Contains("git commit"):
+                var message = span[16..];
                 SetCommand(new GitCommitCommand(Project));
-                CommandWasCalled(null);
+                CommandWasCalled(message.ToString());
                 break;
             case { } when command.Contains("git pull"):
                 SetCommand(new GitPullCommand(Project));

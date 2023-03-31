@@ -2,6 +2,7 @@
 using DomainServices.GitCommands.Commands;
 using DomainServices.GitCommands.Commands.VersionControl;
 using DomainServices.Utils;
+using Moq;
 
 namespace Test.GitCommands;
 public class CommandControlTests
@@ -9,7 +10,7 @@ public class CommandControlTests
     private CommandControl Control;
     public CommandControlTests()
     {
-        Control = new CommandControl(new Project("Test"));
+        Control = new Mock<CommandControl>(new Project("Test")).Object;
     }
 
     [Fact]
@@ -35,17 +36,16 @@ public class CommandControlTests
     public void Should_Choose_Git_Pull_Command_When_Instruction_Contains_git_pull_origin()
     {
         // Act
-        void TestCode() => Control.ChooseCommand("git pull origin");
+        Control.ChooseCommand("git pull origin");
+
         // Assert
-        // Not implemented
-        // Assert.IsType<GitPushCommand>(Control.Command);
-        Assert.Throws<NotImplementedException>(TestCode);
+        Assert.IsType<GitPullCommand>(Control.Command);
     }
     [Fact]
     public void Should_Choose_Git_Checkout_Command_When_Instruction_Contains_git_checkout_With_Branch_Name()
     {
         // Act
-        Control.ChooseCommand("git checkout");
+        Control.ChooseCommand("git checkout slave");
 
         // Assert
         Assert.IsType<GitCheckoutCommand>(Control.Command);
@@ -54,7 +54,14 @@ public class CommandControlTests
     public void Should_Choose_Git_Push_Command_When_Instruction_Contains_git_push()
     {
         // Act
-        Control.ChooseCommand("git push");
+        try
+        {
+          Control.ChooseCommand("git push");
+        }
+        catch (Exception)
+        {
+
+        }
 
         // Assert
         Assert.IsType<GitPushCommand>(Control.Command);

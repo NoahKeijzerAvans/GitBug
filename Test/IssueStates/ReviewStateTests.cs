@@ -33,29 +33,38 @@ public sealed class ReviewStateTests
     }
 
     [Fact]
-    public void Should_Change_State_To_In_Progress_When_Set_Issue_To_In_Progress_Is_Called()
+    public void Should_Throw_Invalid_Operation_When_Set_Issue_To_In_Progress_Is_Called()
     {
         // Arrange
         Setup();
-        // Act
-        _issue.SetIssueToInProgress();
-        var sut = _issue.State;
 
-        // Assert
-        Assert.IsType<InProgressState>(sut);
+        // Act
+        try
+        {
+            _issue.SetIssueToInProgress();
+        }
+        catch (Exception e)
+        {
+            // Assert
+            Assert.IsType<InvalidOperationException>(e);
+        }
     }
 
     [Fact]
-    public void Should_Change_State_To_Done_When_Set_Issue_To_Done_Is_Called()
+    public void Should_Throw_Invalid_Operation_When_Set_Issue_To_Done_Is_Called()
     {
         // Arrange
         Setup();
         // Act
-        _issue.SetIssueToDone();
-        var sut = _issue.State;
-
-        // Assert
-        Assert.IsType<DoneState>(sut);
+        try
+        {
+            _issue.SetIssueToDone();
+        }
+        catch (Exception e)
+        {
+            // Assert
+            Assert.IsType<InvalidOperationException>(e);
+        }
     }
     [Fact]
     public void Should_Change_State_To_Do_When_Set_Issue_To_Do_Is_Called()

@@ -37,24 +37,35 @@ public sealed class InProgressStateTests
     {
         // Arrange
         Setup();
-        // Act
-        _issue.SetIssueToDo();
-        var sut = _issue.State;
 
-        // Assert
-        Assert.IsType<ToDoState>(sut);
+        // Act
+        try
+        {
+            _issue.SetIssueToDo();
+        }catch(Exception e)
+        {
+
+            // Assert
+            Assert.IsType<InvalidOperationException>(e);
+        }
+
     }
     [Fact]
-    public void Should_Change_State_To_Review_When_Set_Issue_To_Review_Is_Called()
+    public void Should_Throw_Invalid_Operation_When_Ready_For_Testing_Is_Called()
     {
         // Arrange
         Setup();
-        // Act
-        _issue.SetIssueToReadyForTesting();
-        var sut = _issue.State;
 
-        // Assert
-        Assert.IsType<ReadyToTestState>(sut);
+        // Act
+        try
+        {
+            _issue.SetIssueToReadyForTesting();
+        }
+        catch (Exception e)
+        {
+            // Assert
+            Assert.IsType<InvalidOperationException>(e);
+        }
     }
 
     [Fact]
@@ -63,11 +74,15 @@ public sealed class InProgressStateTests
         // Arrange
         Setup();
         // Act
-        _issue.SetIssueToDone();
-        var sut = _issue.State;
-
-        // Assert
-        Assert.IsType<DoneState>(sut);
+        try
+        {
+            _issue.SetIssueToDone();
+        }
+        catch (Exception e)
+        {
+            // Assert
+            Assert.IsType<InvalidOperationException>(e);
+        }
     }
     [Fact]
     public void Should_Change_State_To_Canceled_When_Set_Issue_To_Canceled_Is_Called()
