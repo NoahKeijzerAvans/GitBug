@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   tests:
-    uses: ./.github/workflows/tests.yml  # use the callable tests job to run tests
+    uses: ./.github/workflows/test.yml  # use the callable tests job to run tests
   sonarcloud:
     needs: [tests]
     name: Build and analyze
