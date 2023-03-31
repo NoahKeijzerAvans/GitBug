@@ -10,6 +10,6 @@ public class GitCheckoutCommand : GitCommand
 
     public override void Excecute(object? param)
     {
-        Context.CheckoutBranch(param);
+        Context.CheckoutBranch(param!.ToString()!);
     }
 }

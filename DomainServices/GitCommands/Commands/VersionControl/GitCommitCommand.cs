@@ -11,6 +11,6 @@ public class GitCommitCommand : GitCommand
 
     public override void Excecute(object? param)
     {
-        Context.CommitChanges(param!);
+        Context.CommitChanges(param!.ToString()!);
     }
 }
