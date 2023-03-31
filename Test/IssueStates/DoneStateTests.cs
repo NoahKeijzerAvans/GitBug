@@ -1,5 +1,5 @@
 ﻿using Domain.Enums;
-using Domain.Models;
+using DomainServices.Thread;
 using DomainServices.Context.Task;
 using DomainServices.States.IssuesState;
 
@@ -55,12 +55,12 @@ public sealed class DoneStateTests
         Assert.Throws<InvalidOperationException>(TestCode);
     }
     [Fact]
-    public void Should_Throw_Invalid_Operation_Exception_When_Set_To_Review_Is_Called()
+    public void Should_Throw_Invalid_Operation_Exception_When_Set_To_Ready_For_Testing_Is_Called()
     {
         // Arrange
         Setup();
         // Act
-        void TestCode() => _issue.SetIssueToReview();
+        void TestCode() => _issue.SetIssueToReadyForTesting();
         // Assert
         Assert.Throws<InvalidOperationException>(TestCode);
     }

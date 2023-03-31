@@ -10,7 +10,7 @@ public sealed class RemoteStateTests
     private readonly Project _project;
     public RemoteStateTests()
     {
-        _project = new Project("Test", false, "test environment");
+        _project = new Project("Test");
         _project.State = new RemoteState(_project);
         _change = new Change(new object(), _project);
     }

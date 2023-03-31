@@ -111,5 +111,9 @@ namespace DomainServices.States.ChangesState
                 Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
             }
         }
+        public override string ToString()
+        {
+            return "Staging Area";
+        }
     }
 }

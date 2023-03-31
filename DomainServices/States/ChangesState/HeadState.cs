@@ -14,22 +14,24 @@ public class HeadState : IChangesState
 
     public void AddChange(Change? change)
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("Cannot add changes in Head State");
     }
 
     public void CommitChanges(string description)
     {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("Cannot commit in Head State");
     }
 
     public void PullToWorkingDirectory()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Pulled changes to Working Directory");
+        Context.State = new WorkingDirectoryState(Context);
     }
 
     public void PushToRemote()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Pushed commits to Remote");
+        Context.State = new WorkingDirectoryState(Context);
     }
 
     public void SetContext(Project context)
@@ -93,6 +95,10 @@ public class HeadState : IChangesState
             Context.CurrentBranch = Context.Branches.FirstOrDefault(b => b.Name.Equals(name))!;
             Console.WriteLine($"Current branch is {Context.CurrentBranch.Name}");
         }
+    }
+    public override string ToString()
+    {
+        return "Head";
     }
 }
 

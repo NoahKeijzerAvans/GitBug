@@ -11,7 +11,7 @@ public sealed class StagingAreaStateTests
     private readonly Project _project;
     public StagingAreaStateTests()
     {
-        _project = new Project("Test", false, "test environment");
+        _project = new Project("Test");
         _project.State = new StagingAreaState(_project);
         _change = new Change(new object(), _project);
     }

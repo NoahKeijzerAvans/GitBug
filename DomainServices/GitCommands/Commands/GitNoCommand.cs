@@ -7,7 +7,7 @@ public class NoCommand : GitCommand
     public NoCommand(Project context) : base(context)
     {
     }
-    public override void Excecute(dynamic? param)
+    public override void Excecute(object? param)
     {
         Console.WriteLine("No command selected.");
     }

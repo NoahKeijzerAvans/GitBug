@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fn8qDDwwgcWsQc7dlzb16pONAyS+lwpsVXJZV6IOupj/8eUkYJCJU7uVTYgHzifFg+QIllpcYwpTlPm1hSgK2w==",
+  "dgSpecHash": "uQsEOoseC777XK0CixXDNfYlBJSxGFZC+VlhX2p6HvdzYOLaB568svRaTS/WrjnDyBXpx7eLKIyk/ePr/xyurg==",
   "success": true,
   "projectFilePath": "C:\\source\\SOFA3\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noahd\\.nuget\\packages\\consoletables\\2.4.2\\consoletables.2.4.2.nupkg.sha512",
-    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
-    "C:\\Users\\noahd\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.5\\microsoft.aspnetcore.authorization.6.0.5.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.5\\microsoft.aspnetcore.components.6.0.5.nupkg.sha512",
     "C:\\Users\\noahd\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.5\\microsoft.aspnetcore.components.analyzers.6.0.5.nupkg.sha512",
