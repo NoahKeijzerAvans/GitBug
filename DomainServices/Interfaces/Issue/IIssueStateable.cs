@@ -9,7 +9,8 @@ public interface IIssueStateable
     // ReSharper disable once UnusedMemberInSuper.Global
     public void SetIssueToDone();
     // ReSharper disable once UnusedMemberInSuper.Global
-    public void SetIssueToReview();
+    public void SetIssueToReadyForTesting();
     // ReSharper disable once UnusedMemberInSuper.Global
     public void SetIssueToCanceled();
+    public void SetIssueToTested();
 }

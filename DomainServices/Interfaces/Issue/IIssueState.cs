@@ -5,6 +5,7 @@ public interface IIssueState
     public void SetIssueToDo();
     public void SetIssueToInProgress();
     public void SetIssueToDone();
-    public void SetIssueToReview();
+    public void SetIssueToReadyForTesting();
+    public void SetIssueToTested();
     public void SetIssueToCanceled();
 }

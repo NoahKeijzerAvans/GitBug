@@ -1,6 +1,6 @@
 ﻿using DomainServices.Context;
 using DomainServices.Context.VersionControl;
-using DomainServices.Utils;
+using LibGit2Sharp;
 
 namespace DomainServices.GitCommands.Commands;
 
@@ -9,7 +9,7 @@ public class GitAddChangesCommand : GitCommand
     public GitAddChangesCommand(Project context) : base(context)
     {
     }
-    public override void Excecute(dynamic? change)
+    public override void Excecute(object? change)
     {
         Context.AddChange((Change?)change);
     }
