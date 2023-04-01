@@ -75,4 +75,5 @@ public class CommandControlTests
         // Assert
         Assert.IsType<GitPullCommand>(Control.Command);
     }
+    
 }

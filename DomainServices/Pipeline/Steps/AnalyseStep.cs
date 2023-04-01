@@ -10,6 +10,7 @@ public class AnalyseStep : PipelineStep, IObserver
         Console.WriteLine("Excecuting Analyse step, please wait.");
         ConsoleSpinner.Draw();
         Console.WriteLine("\nAnalyse step succeeded!");
+        IsSucceeded = true;
     }
     public override string ToString()
     {

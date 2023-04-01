@@ -10,6 +10,7 @@ public class UtilityStep : PipelineStep, IObserver
         Console.WriteLine("Excecuting Utility step, please wait.");
         ConsoleSpinner.Draw();
         Console.WriteLine("\nUtility step succeeded!");
+        IsSucceeded = true;
     }
     public override string ToString()
     {
