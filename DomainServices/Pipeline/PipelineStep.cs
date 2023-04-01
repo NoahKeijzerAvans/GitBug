@@ -4,6 +4,8 @@ namespace DomainServices.Pipeline
 {
     public abstract class PipelineStep : IObserver
     {
+        public bool IsSucceeded { get; set; }
+
         public override string ToString()
         {
             return base.ToString()!;

@@ -10,6 +10,7 @@ public class PackageStep : PipelineStep, IObserver
         Console.WriteLine("Excecuting Package step, please wait.");
         ConsoleSpinner.Draw();
         Console.WriteLine("\nPackage step succeeded!");
+        IsSucceeded = true;
     }
     public override string ToString()
     {

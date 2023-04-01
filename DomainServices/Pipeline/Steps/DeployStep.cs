@@ -10,6 +10,7 @@ public class DeployStep : PipelineStep, IObserver
         Console.WriteLine("Excecuting Deploy step, please wait.");
         ConsoleSpinner.Draw();
         Console.WriteLine("\nDeployment step succeeded!");
+        IsSucceeded = true;
     }
     public override string ToString()
     {
