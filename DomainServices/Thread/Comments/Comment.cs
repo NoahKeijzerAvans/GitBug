@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Models.Comments
+namespace DomainServices.Thread.Comments
 {
     public class Comment
     {
