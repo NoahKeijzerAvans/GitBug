@@ -6,8 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+	
+	<PropertyGroup>
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
     <ProjectReference Include="..\DomainServices\DomainServices.csproj" />
   </ItemGroup>
 

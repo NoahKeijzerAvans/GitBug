@@ -6,10 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Syncfusion.Blazor.ProgressBar" Version="21.1.35" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</PropertyGroup>
 </Project>

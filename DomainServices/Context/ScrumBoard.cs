@@ -209,6 +209,5 @@ public class ScrumBoard
             Console.WriteLine();
             Console.WriteLine($"{person.Email}: {effort} storypoints done");
         });
-
     }
 }
