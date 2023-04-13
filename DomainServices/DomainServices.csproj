@@ -13,7 +13,7 @@
 
 	<ItemGroup>
 		<SonarQubeSetting Include="sonar.coverage.exclusions">
-			<Value>**/Task, **/Pipeline.cs, **/IssueThread.cs, **/Scrumboard.cs</Value>
+			<Value>**/Task, **/Pipeline.cs, **/IssueThread.cs, **/ScrumBoard.cs, **/Sprint.cs, **/GitAddTaskCommand.cs</Value>
 		</SonarQubeSetting>
 	</ItemGroup>
 
