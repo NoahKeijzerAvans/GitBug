@@ -2,14 +2,10 @@
 using DomainServices.Context.Task;
 using DomainServices.Context.VersionControl;
 using DomainServices.Interfaces.Change;
-using Change = DomainServices.Context.VersionControl.Change;
 using DomainServices.Thread;
 using DomainServices.Factory;
-using Microsoft.VisualBasic;
 using Domain.Enums;
-using System.Xml.Linq;
-using Domain.Models.Comments;
-using DomainServices.Observer;
+using Change = DomainServices.Context.VersionControl.Change;
 
 namespace DomainServices.Context;
 
