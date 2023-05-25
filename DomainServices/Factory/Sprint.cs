@@ -20,7 +20,7 @@ namespace DomainServices.Factory
         public List<IssueThread> Threads { get; set; }
         public ScrumBoard Scumboard { get; set; }
 
-        public Sprint(string name)
+        protected Sprint(string name)
         {
             IssuePosition = new List<Dictionary<Issue, Position>>();
             SprintStatus = SprintStatus.OPEN;
