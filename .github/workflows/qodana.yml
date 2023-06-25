@@ -20,4 +20,4 @@ jobs:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       with:
         command: baseline  # Specify the command as 'baseline' for running the baseline analysis
-        
+        baseline-file: 'qodana.sarif.json'  # Specify the path to the baseline file
