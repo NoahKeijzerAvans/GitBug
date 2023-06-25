@@ -724,19 +724,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tdela\\.nuget\\packages\\": {}
+    "C:\\Users\\noahd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tdela\\source\\repos\\GitBug\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\noahd\\Repositories\\GitBug\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\tdela\\source\\repos\\GitBug\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\tdela\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tdela\\source\\repos\\GitBug\\Application\\obj\\",
+      "projectPath": "C:\\Users\\noahd\\Repositories\\GitBug\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\noahd\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\noahd\\Repositories\\GitBug\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tdela\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\noahd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -750,8 +750,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\tdela\\source\\repos\\GitBug\\DomainServices\\DomainServices.csproj": {
-              "projectPath": "C:\\Users\\tdela\\source\\repos\\GitBug\\DomainServices\\DomainServices.csproj"
+            "C:\\Users\\noahd\\Repositories\\GitBug\\DomainServices\\DomainServices.csproj": {
+              "projectPath": "C:\\Users\\noahd\\Repositories\\GitBug\\DomainServices\\DomainServices.csproj"
             }
           }
         }
@@ -781,7 +781,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
